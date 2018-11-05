@@ -1,0 +1,13 @@
+﻿@model OLIVIEM.Viewmodel.RegisterViewmodel
+@{
+    ViewData["Title"] = "index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>index</h2>
+
+<form asp-controller="Register" asp-action="Register" method="post">
+<input id="Text1" asp-for="Username" />
+<input id="Password1" asp-for="Password" />
+<input type="submit" />
+</form>
