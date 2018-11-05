@@ -3,7 +3,7 @@ using Logic;
 
 namespace Facctory
 {
-    public class Factory
+    public static class Factory
     {
         public static Loginlogic GetLoginLogic()
         {
