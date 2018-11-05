@@ -1,4 +1,4 @@
-﻿        using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using DAL;
@@ -9,6 +9,7 @@ namespace Logic
     public class Loginlogic
     {
         private Loginrepository repository;
+        private global::DAL.Loginrepository loginrepository;
 
         public Loginlogic(Loginrepository repository)
         {
@@ -16,7 +17,7 @@ namespace Logic
         }
 
 
-       public bool Login(User user)
+        public bool Login(User user)
         {
             if (user.Password.Length < 5)
             {

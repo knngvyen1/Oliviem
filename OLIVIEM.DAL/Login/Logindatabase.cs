@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Data.SqlClient;
 using System.Configuration;
 using Models;
+using System.Data.SqlClient;
 
 namespace DAL
 {
    public class Logindatabase : ILogincontext
     {
         private static string connectionstring = "Data Source=LAPTOP-EAQU5PDBSQLEXPRESS;Initial Catalog=OLIVIEM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private SqlConnection sqlConnection = new SqlConnection(connectionstring);
+        private SqlConnection con = new SqlConnection(connectionstring);
 
         public Logindatabase()
         {
@@ -18,13 +18,13 @@ namespace DAL
         }
         public void AddUser(string username, string password)
         {
-            sqlConnection.Open();
+            con.Open();
             string query = "INSERT INTO [User](Username, Password)values(@usr,@pas)";
-            SqlCommand cmd = new SqlCommand();
+            SqlCommand cmd = new SqlCommand( query, con);
             cmd.Parameters.AddWithValue(@"Username", username);
             cmd.Parameters.AddWithValue("@Password", password);
             cmd.ExecuteNonQuery();
-            sqlConnection.Close();
+            con.Close();
         }
 
         public void Login(User user)

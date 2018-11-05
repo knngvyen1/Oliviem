@@ -5,8 +5,6 @@ using System.Text;
 
 namespace DAL
 {
-   
-   
    public class Loginrepository
     {
         private ILogincontext context;
