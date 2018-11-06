@@ -9,10 +9,7 @@ namespace DAL
     {
         private Iregistercontext Context;
         private RegisterDatabase Database;
-        //public Registerrepository(RegisterDatabase database)
-        //{
-        //    Database = database;
-        //}
+
         public Registerrepository(Iregistercontext context)
         {
             Context = context;
@@ -23,5 +20,16 @@ namespace DAL
         {
             Context.AddUser(user);
         }
+
+        public bool UsernameExist(User user)
+        {
+            return Context.UsernameExist(user);
+        }
+        
+        public User GetUser(string username)
+        {
+            return Context.GetUser(username);
+        }
+
     }
 }

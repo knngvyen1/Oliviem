@@ -15,6 +15,8 @@ namespace Models
             Password = password;
         }
 
-        
+        public User() { }
+
+
     }
 }

@@ -19,5 +19,15 @@ namespace Logic
         {
             Repository.AddUser(user);
         }
+
+        public bool UsernameExist(User user)
+        {
+            return Repository.UsernameExist(user);
+        }
+
+        public User GetUser(string username)
+        {
+            return Repository.GetUser(username);
+        }
     }
 }

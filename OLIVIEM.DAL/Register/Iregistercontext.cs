@@ -8,5 +8,7 @@ namespace DAL
    public interface Iregistercontext
     {
         void AddUser(User user);
+        bool UsernameExist(User user);
+        User GetUser(string username);
     }
 }

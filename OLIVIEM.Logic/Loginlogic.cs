@@ -9,7 +9,7 @@ namespace Logic
     public class Loginlogic
     {
         private Loginrepository repository;
-        private global::DAL.Loginrepository loginrepository;
+        
 
         public Loginlogic(Loginrepository repository)
         {
