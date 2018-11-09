@@ -26,13 +26,17 @@ namespace OLIVIEM.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewmodel viewmodel)
         {
-            registerlogic.GetUser(viewmodel.Username);
+
+           bool kutzooi= registerlogic.UsernameExist(new Models.User(viewmodel.Username, viewmodel.Password));
             registerlogic.AddUser(new Models.User(viewmodel.Username, viewmodel.Password));
-            return View();
+            return View(kutzooi);
         }
 
 
 
-        
+
+
+
+
     }
 }

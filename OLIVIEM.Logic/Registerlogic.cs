@@ -17,6 +17,10 @@ namespace Logic
 
         public void AddUser(User user)
         {
+            //if (user.Username.Length > 10)
+            //{
+
+            //}
             Repository.AddUser(user);
         }
 
@@ -29,5 +33,7 @@ namespace Logic
         {
             return Repository.GetUser(username);
         }
+
+
     }
 }

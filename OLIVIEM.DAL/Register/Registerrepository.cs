@@ -8,7 +8,6 @@ namespace DAL
    public class Registerrepository
     {
         private Iregistercontext Context;
-        private RegisterDatabase Database;
 
         public Registerrepository(Iregistercontext context)
         {
