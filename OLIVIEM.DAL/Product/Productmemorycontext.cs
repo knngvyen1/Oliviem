@@ -31,5 +31,11 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+        //voeg product toe
+        // delete product
+        // haal alle producten op
+        //haal een specifiek product op / zoek een product
+        //producten filteren
+        
     }
 }

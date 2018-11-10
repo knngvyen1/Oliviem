@@ -5,6 +5,10 @@ namespace Facctory
 {
     public static class Factory
     {
+
+        // public static Accoutlogic Getaccountlogic()
+        
+   
         public static Loginlogic GetLoginLogic()
         {
             return new Loginlogic(new Loginrepository(new Logindatabase()));
@@ -24,5 +28,9 @@ namespace Facctory
         {
             return new Registerlogic(new Registerrepository(new RegisterDatabase()));
         }
+
+        //Public static Shoppingcart GetShoppingcartLogic()
+
+
     }
 }

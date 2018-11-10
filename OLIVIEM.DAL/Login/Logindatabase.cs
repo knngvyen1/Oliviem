@@ -26,6 +26,11 @@ namespace DAL
             cmd.ExecuteNonQuery();
             con.Close();
         }
+        // check if user exist in de database
+        //check if user is ingelogd
+        //if not melding user doesnt exist> registreer
+
+
 
         public void Login(User user)
         {
@@ -36,5 +41,7 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }

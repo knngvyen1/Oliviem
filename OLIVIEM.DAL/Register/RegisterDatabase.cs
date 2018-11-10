@@ -61,6 +61,10 @@ namespace DAL
             return false;
         }
 
+        // Delete user
+
+        //
+
       
     }
 }
