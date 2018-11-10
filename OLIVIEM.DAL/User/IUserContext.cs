@@ -4,7 +4,7 @@ using System.Text;
 
 namespace OLIVIEM.DAL.Account
 {
-   public class AccountDatabase : IAccountContext
+   public interface IUserContext
     {
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OLIVIEM.DAL.Account
+namespace OLIVIEM.Logic
 {
-   public interface IAccountContext
+    class UserLogic
     {
     }
 }
