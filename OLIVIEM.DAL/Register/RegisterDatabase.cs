@@ -16,8 +16,8 @@ namespace DAL
             conn.Open();
             string query = "INSERT INTO [User](Username, Password)values(@Username,@Password)";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue(@"Username", user.Username);
-            cmd.Parameters.AddWithValue("@Password", user.Password);
+            cmd.Parameters.AddWithValue(@"Username", user.username);
+            cmd.Parameters.AddWithValue("@Password", user.password);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -32,7 +32,7 @@ namespace DAL
                 {
                     new User()
                     {
-                        Username = (string)reader["username"],
+                        username = (string)reader["username"],
                       
                     };
                 }
@@ -42,7 +42,6 @@ namespace DAL
         public bool UsernameExist(User username)
         {
             conn.Open();
-            //prepare query
             string query = $"SELECT username FROM [User] WHERE username ='{username}'";
             SqlCommand cmd = new SqlCommand(query, conn);
             int id = -1;
@@ -63,7 +62,6 @@ namespace DAL
 
         // Delete user
 
-        //
 
       
     }

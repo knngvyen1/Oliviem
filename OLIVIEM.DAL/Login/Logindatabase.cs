@@ -16,13 +16,13 @@ namespace DAL
         {
 
         }
-        public void AddUser(string username, string password)
+        public void DeleteUser(string username, string password)
         {
             con.Open();
-            string query = "INSERT INTO [User](Username, Password)values(@usr,@pas)";
-            SqlCommand cmd = new SqlCommand( query, con);
-            cmd.Parameters.AddWithValue(@"Username", username);
-            cmd.Parameters.AddWithValue("@Password", password);
+            string query = "DELETE from[User] where username = @username, password = @password";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue(@"username", username);
+            cmd.Parameters.AddWithValue("@password", password);
             cmd.ExecuteNonQuery();
             con.Close();
         }

@@ -33,8 +33,8 @@ namespace DAL
         }
         private void AddFakeData()
         {
-            users.Add(new User("karin", "de knapste"));
-            users.Add(new User("viem", "de lelijkste"));
+            users.Add(new User("karin", "de knapste",5 , 6));
+            users.Add(new User("viem", "de lelijkste", 5, 9));
         }
 
 
@@ -48,7 +48,7 @@ namespace DAL
             {
                 if (users!= null)
                 {
-                    if (u.Username == user.Username && u.Password == user.Password)
+                    if (u.username == user.username && u.password == user.password)
                     {
                         valid = true;
                         break;

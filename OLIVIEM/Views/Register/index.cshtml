@@ -4,11 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Log in alstublieft</h2>
+<script type="text/javascript" src="~/js/site.js"></script>
+
+<h2> Registreer u hieronder alstublieft</h2>
 
 <form asp-controller="Register" asp-action="Register">
 <input id="Text1" asp-for="Username" />
-<input id="Password1" asp-for="Password" />
-<input type="submit" placeholder="Registreer" />
+<input id="Password1" asp-for="Password" oninput="checkPasswordLength()" />
+<input type="submit" id="button-submit" placeholder="Registreer" />
 </form>
 

@@ -17,9 +17,10 @@ namespace Logic
         }
 
 
+        //Usecase 1 en 2
         public bool Login(User user)
         {
-            if (user.Password.Length < 5)
+            if (user.password.Length <= 8)
             {
                 return false;
             }

@@ -26,10 +26,17 @@ namespace OLIVIEM.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewmodel viewmodel)
         {
-
-           bool kutzooi= registerlogic.UsernameExist(new Models.User(viewmodel.Username, viewmodel.Password));
-            registerlogic.AddUser(new Models.User(viewmodel.Username, viewmodel.Password));
-            return View(kutzooi);
+            Messageviewmodel messageviewmodel = new Messageviewmodel();
+            try
+            {
+                registerlogic.AddUser(new User(viewmodel.Username, viewmodel.Password));
+            }
+            catch (Exception)
+            {
+                messageviewmodel.Message = "wachtwoord is te kort";              
+            }
+            
+            return View(messageviewmodel);
         }
 
 

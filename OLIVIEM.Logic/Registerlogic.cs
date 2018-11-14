@@ -6,6 +6,7 @@ using System.Text;
 
 namespace Logic
 {
+    //regels
     public class Registerlogic
     {
         private Registerrepository Repository;
@@ -17,11 +18,15 @@ namespace Logic
 
         public void AddUser(User user)
         {
-            //if (user.Username.Length > 10)
-            //{
-
-            //}
-            Repository.AddUser(user);
+            if (user.password.Length >= 8)
+            {
+                Repository.AddUser(user);
+            }
+            else
+            {
+                throw new Exception();
+            }
+           
         }
 
         public bool UsernameExist(User user)

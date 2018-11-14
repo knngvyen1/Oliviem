@@ -6,16 +6,30 @@ namespace Models
 {
     public class User
     {
-        public string Username { get; set; }
-        public string Password { get; set; }
+        public string username { get; set; }
+        public string password { get; set; }
+        public int id { get; set; }
+        public double saldo { get; set; }
 
-        public User(string username, string password)
+        public User(string Username, string Password, int Id, double Saldo)
         {
-            Username = username;
-            Password = password;
+            username = Username;
+            password = Password;
+            id = Id;
+            saldo = Saldo;
+
         }
 
-        public User() { }
+        public User()
+        {
+
+        }
+
+        public User(string Username, string Password)
+        {
+            username = Username;
+            password = Password;
+        }
 
 
     }
