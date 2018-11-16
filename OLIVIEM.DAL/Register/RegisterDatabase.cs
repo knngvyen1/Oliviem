@@ -17,7 +17,7 @@ namespace DAL
             string query = "INSERT INTO [User](Username, Password)values(@Username,@Password)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue(@"Username", user.username);
-            cmd.Parameters.AddWithValue("@Password", user.password);
+            cmd.Parameters.AddWithValue(@"Password", user.password);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -42,22 +42,22 @@ namespace DAL
         public bool UsernameExist(User username)
         {
             conn.Open();
-            string query = $"SELECT username FROM [User] WHERE username ='{username}'";
+            string query = $"SELECT username FROM [User] WHERE username ='{username.username}'";
             SqlCommand cmd = new SqlCommand(query, conn);
-            int id = -1;
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
+                
                 while (reader.Read())
                 {
-                    id = reader.GetInt32(0);
+                    if(reader.HasRows)
+                    {
+                        conn.Close();
+                        return false;
+                    }
                 }
             }
             conn.Close();
-            if (id != -1)
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
 
         // Delete user

@@ -26,18 +26,14 @@ namespace OLIVIEM.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewmodel viewmodel)
         {
-            Messageviewmodel messageviewmodel = new Messageviewmodel();
-            try
-            {
-                registerlogic.AddUser(new User(viewmodel.Username, viewmodel.Password));
-            }
-            catch (Exception)
-            {
-                messageviewmodel.Message = "wachtwoord is te kort";              
-            }
-            
-            return View(messageviewmodel);
+            ViewBag.Message = "KUTZOOOOI";
+            //registerlogic.AddUser(new User(viewmodel.Username, viewmodel.Password));
+          
+
+            return View();
         }
+
+
 
 
 

@@ -7,6 +7,19 @@ namespace OLIVIEM.Viewmodel
 {
     public class Messageviewmodel
     {
-        public string Message { get; set; }
+        private string name = "Default Name";
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+
     }
 }

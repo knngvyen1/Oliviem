@@ -18,6 +18,10 @@ namespace Logic
 
         public void AddUser(User user)
         {
+            if (UsernameExist(user))
+            {
+                throw new NullReferenceException();
+            }
             if (user.password.Length >= 8)
             {
                 Repository.AddUser(user);
@@ -26,7 +30,6 @@ namespace Logic
             {
                 throw new Exception();
             }
-           
         }
 
         public bool UsernameExist(User user)
