@@ -26,11 +26,22 @@ namespace OLIVIEM.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewmodel viewmodel)
         {
-            ViewBag.Message = "KUTZOOOOI";
-            //registerlogic.AddUser(new User(viewmodel.Username, viewmodel.Password));
-          
-
-            return View();
+            viewmodel.message = "Your account has been created.";
+            try
+            {
+                registerlogic.AddUser(new User(viewmodel.Username, viewmodel.Password));
+            }
+            catch (Exception e)
+            {
+                viewmodel.message = e.Message;
+                //return ViewBag();
+            }
+            finally
+            {
+                viewmodel.Password = "";
+            }
+            
+            return View(viewmodel);
         }
 
 

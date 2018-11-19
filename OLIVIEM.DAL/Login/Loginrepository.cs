@@ -8,7 +8,6 @@ namespace DAL
    public class Loginrepository
     {
         private ILogincontext Context;
-        private Logindatabase database;
 
         public Loginrepository(ILogincontext context)
         {

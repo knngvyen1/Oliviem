@@ -30,6 +30,10 @@ namespace Models
             username = Username;
             password = Password;
         }
+        public User(string Username)
+        {
+            username = Username;
+        }
 
 
     }

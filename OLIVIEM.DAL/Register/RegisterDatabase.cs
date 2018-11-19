@@ -39,28 +39,24 @@ namespace DAL
             }
             return new User();
         }
-        public bool UsernameExist(User username)
+        public bool UsernameExist(string username)
         {
+            bool userexist = false;
             conn.Open();
-            string query = $"SELECT username FROM [User] WHERE username ='{username.username}'";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            string query1 = "SELECT COUNT(*) AS 'CNT' FROM [User] WHERE username = @Username";// aantal username
+            SqlCommand cmd = new SqlCommand(query1, conn);
+            cmd.Parameters.AddWithValue(@"Username", username);
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
             {
-                
-                while (reader.Read())
-                {
-                    if(reader.HasRows)
-                    {
-                        conn.Close();
-                        return false;
-                    }
-                }
+                userexist = reader.GetInt32(0) == 1;
             }
+            
             conn.Close();
-            return true;
+            return userexist;
         }
 
-        // Delete user
+
 
 
       

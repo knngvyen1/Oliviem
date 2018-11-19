@@ -10,6 +10,7 @@ namespace Logic
     public class Registerlogic
     {
         private Registerrepository Repository;
+        private const int MIN_PASSWORD_LENGTH = 8;
 
         public Registerlogic(Registerrepository registerrepository)
         {
@@ -18,23 +19,29 @@ namespace Logic
 
         public void AddUser(User user)
         {
-            if (UsernameExist(user))
+
+            if (user.password.Length >= MIN_PASSWORD_LENGTH)
             {
-                throw new NullReferenceException();
-            }
-            if (user.password.Length >= 8)
-            {
-                Repository.AddUser(user);
-            }
+                if (UsernameExists(user.username) == false)
+                {
+                    Repository.AddUser(user);
+                }
+                else
+                {
+                    //bestaat al😡
+                    throw new Exception("User already exists.");
+                }
+            }          
             else
             {
-                throw new Exception();
+                //ww nie lang genoeg
+                throw new Exception($"Password is too short. Required length is {MIN_PASSWORD_LENGTH}.");
             }
         }
 
-        public bool UsernameExist(User user)
+        private bool UsernameExists(string username)
         {
-            return Repository.UsernameExist(user);
+            return Repository.UsernameExist(username);
         }
 
         public User GetUser(string username)

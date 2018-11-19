@@ -20,9 +20,9 @@ namespace DAL
             Context.AddUser(user);
         }
 
-        public bool UsernameExist(User user)
+        public bool UsernameExist(string username)
         {
-            return Context.UsernameExist(user);
+            return Context.UsernameExist(username);
         }
         
         public User GetUser(string username)
