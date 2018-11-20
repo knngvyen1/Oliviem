@@ -41,19 +41,14 @@ namespace DAL
         }
         public bool UsernameExist(string username)
         {
-            bool userexist = false;
             conn.Open();
-            string query1 = "SELECT COUNT(*) AS 'CNT' FROM [User] WHERE username = @Username";// aantal username
+            string query1 = "SELECT COUNT(*) AS 'CNT' FROM [User] WHERE username = '@Username'";// aantal username
             SqlCommand cmd = new SqlCommand(query1, conn);
             cmd.Parameters.AddWithValue(@"Username", username);
             SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                userexist = reader.GetInt32(0) == 1;
-            }
-            
+            var hasRows = reader.HasRows;
             conn.Close();
-            return userexist;
+            return hasRows;
         }
 
 

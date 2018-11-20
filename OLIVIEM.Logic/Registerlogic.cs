@@ -22,20 +22,20 @@ namespace Logic
 
             if (user.password.Length >= MIN_PASSWORD_LENGTH)
             {
-                if (UsernameExists(user.username) == false)
+                if (!UsernameExists(user.username))
                 {
                     Repository.AddUser(user);
                 }
                 else
                 {
                     //bestaat al😡
-                    throw new Exception("User already exists.");
+                    throw new Exception("User already exists😡.");
                 }
             }          
             else
             {
                 //ww nie lang genoeg
-                throw new Exception($"Password is too short. Required length is {MIN_PASSWORD_LENGTH}.");
+                throw new Exception($"Password is too short. Required length is {MIN_PASSWORD_LENGTH}.😡");
             }
         }
 
