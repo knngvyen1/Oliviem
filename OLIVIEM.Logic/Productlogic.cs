@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Models;
+using OLIVIEM.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,10 +16,7 @@ namespace Logic
             this.productrepository = productrepository;
         }
 
-        public new List<Product> GetAllProducts()
-        {
-            return productrepository.GetAllProducts();
-        }
+
       
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Models;
+using OLIVIEM.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DAL
 {
-   public class Productmemorycontext : Iproductcontext
+   public class Productmemorycontext
     {
         public List<Product> products;
 

@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models
+namespace OLIVIEM.Models
 {
-    public class Product
+   public class Product
     {
-        public string  Name { get; set; }
+        public string Name { get; set; }
         public string Size { get; set; }
         public string Color { get; set; }
         public double Price { get; set; }
         public string Category { get; set; }
         public int Stock { get; set; }
 
-        public Product( string name, string size, string color, double price, string category, int stock)
+        public Product(string name, string size, string color, double price, string category, int stock)
         {
             Name = name;
             Size = size;
@@ -23,5 +23,4 @@ namespace Models
             Stock = stock;
         }
     }
-
 }
