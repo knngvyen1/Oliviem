@@ -35,3 +35,11 @@ body {
         display: none;
     }
 }
+
+img {
+    padding: 10px;
+    width: 100%;
+}
+.col-md-4 {
+    padding: 10px;
+}
