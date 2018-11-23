@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Logic;
+using OLIVIEM.DAL;
 
 namespace Facctory
 {
@@ -13,7 +14,7 @@ namespace Facctory
 
         public static Productlogic GetProductslogic()
         {
-            return new Productlogic(new Productrepository(new Productmemorycontext()));
+            return new Productlogic(new Productrepository(new ProductDatabase()));
         }
 
         //public static Orderlogic GetOrderLogic()

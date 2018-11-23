@@ -16,6 +16,10 @@ namespace Logic
             this.productrepository = productrepository;
         }
 
+        public void Addproduct(Product product)
+        {
+            productrepository.AddProduct(product);
+        }
 
       
     }

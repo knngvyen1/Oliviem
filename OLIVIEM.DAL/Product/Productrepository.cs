@@ -8,24 +8,16 @@ namespace DAL
 {
    public class Productrepository
     {
-        private ILogincontext context;
-        private Productmemorycontext productmemorycontext;
+        private Iproductcontext context;
 
-        public Productrepository(ILogincontext context)
+        public Productrepository(Iproductcontext Context)
         {
-            this.context = context;
+            this.context = Context;
         }
 
-        public Productrepository(Productmemorycontext productmemorycontext)
+        public void AddProduct(Product product)
         {
-            this.productmemorycontext = productmemorycontext;
-        }
-
-
-
-        public List<Product> GetAllProducts()
-        {
-            return productmemorycontext.Getallproduct();
+            context.AddProduct(product);
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using Models;
+using OLIVIEM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,12 @@ namespace OLIVIEM.Viewmodel
     {
         public List<Product> products { get; set; }
         public string Name { get; set; }
+        public string Size { get; set; }
+        public string Color { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
+        public string Message { get; set; }
+
+
     }
 }

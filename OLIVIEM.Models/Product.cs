@@ -9,18 +9,18 @@ namespace OLIVIEM.Models
         public string Name { get; set; }
         public string Size { get; set; }
         public string Color { get; set; }
-        public double Price { get; set; }
-        public string Category { get; set; }
-        public int Stock { get; set; }
+        public decimal Price { get; set; }
+        public int Quantity { get; set; }
 
-        public Product(string name, string size, string color, double price, string category, int stock)
+        public Product(string name, string size, string color, decimal price, int quantity)
         {
             Name = name;
             Size = size;
             Color = color;
             Price = price;
-            Category = category;
-            Stock = stock;
+            Quantity = quantity;
+
+
         }
     }
 }

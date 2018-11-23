@@ -10,5 +10,6 @@ namespace DAL
     public interface Iproductcontext
     {
         List<Product> GetProducts();
+        void AddProduct(Product product);
     }
 }

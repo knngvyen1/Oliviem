@@ -18,8 +18,7 @@ namespace DAL
 
         private void AddFakeData()
         {
-            products.Add(new Product("Groene broek", "s", "grijs", 3.26, "broeken", 6));
-            products.Add(new Product("Paarse broek", "m", "wit", 3.26, "broeken", 10));
+
         }
 
         public List<Product> Getallproduct()
