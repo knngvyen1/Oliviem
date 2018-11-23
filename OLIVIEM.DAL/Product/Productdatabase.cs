@@ -15,18 +15,19 @@ namespace OLIVIEM.DAL
         public void AddProduct(Product product)
         {
             conn.Open();
-            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity)values(@Name, @Price, @Color, @Size, @Quantity)";
+            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Image)values(@Name, @Price, @Color, @Size, @Quantity, @Image)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue(@"Name", product.Name);
             cmd.Parameters.AddWithValue(@"Price", product.Price);
             cmd.Parameters.AddWithValue(@"Color", product.Color);
             cmd.Parameters.AddWithValue(@"Size", product.Size);
             cmd.Parameters.AddWithValue(@"Quantity", product.Quantity);
+            //cmd.Parameters.AddWithValue(@"Image", product.Image);
             cmd.ExecuteNonQuery();
             conn.Close();
-
-
         }
+
+
 
         public List<Product> GetProducts()
         {

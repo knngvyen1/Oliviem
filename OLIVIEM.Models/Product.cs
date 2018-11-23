@@ -19,6 +19,7 @@ namespace OLIVIEM.Models
             Color = color;
             Price = price;
             Quantity = quantity;
+      
 
 
         }
