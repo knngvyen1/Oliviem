@@ -22,7 +22,7 @@ namespace DAL
 
         public void GetAllProducts(List<Product> products)
         {
-            context.GetAllProducts();
+            context.GetAllProducts(products);
         }
 
 
