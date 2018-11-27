@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OLIVIEM.Logic", "OLIVIEM.Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OLIVIEM.Models", "OLIVIEM.Models\OLIVIEM.Models.csproj", "{2D9D89CF-891D-42DC-8DAA-2539AE8DD5A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OLIVIEM.Factory", "Facctory\OLIVIEM.Factory.csproj", "{7054C33D-E38B-453A-8ABB-F657BA1BA423}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OLIVIEM.Factory", "Facctory\OLIVIEM.Factory.csproj", "{7054C33D-E38B-453A-8ABB-F657BA1BA423}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oliviem.Utils", "Oliviem.Utils\Oliviem.Utils.csproj", "{2740AAD8-1CBC-44FA-907B-02D1F65A8940}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{7054C33D-E38B-453A-8ABB-F657BA1BA423}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7054C33D-E38B-453A-8ABB-F657BA1BA423}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7054C33D-E38B-453A-8ABB-F657BA1BA423}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2740AAD8-1CBC-44FA-907B-02D1F65A8940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2740AAD8-1CBC-44FA-907B-02D1F65A8940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2740AAD8-1CBC-44FA-907B-02D1F65A8940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2740AAD8-1CBC-44FA-907B-02D1F65A8940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

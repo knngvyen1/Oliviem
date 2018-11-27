@@ -22,7 +22,7 @@ namespace Logic
 
             if (user.password.Length >= MIN_PASSWORD_LENGTH)
             {
-                if (!UsernameExists(user.username))
+                if (UsernameExists(user.username)== false)
                 {
                     Repository.AddUser(user);
                 }

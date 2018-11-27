@@ -40,7 +40,7 @@ namespace DAL
             return new User();
         }
         public bool UsernameExist(string username)
-        {
+         {
             conn.Open();
             string query = "SELECT COUNT(*) AS 'CNT' FROM [User] WHERE username = '@Username'";// aantal username
             SqlCommand cmd = new SqlCommand(query, conn);
@@ -48,7 +48,8 @@ namespace DAL
             SqlDataReader reader = cmd.ExecuteReader();
             var hasRows = reader.HasRows;
             conn.Close();
-            return hasRows;
+            return hasRows; // moet true zijn als er een gebruiker bestaat
+                
         }
 
 

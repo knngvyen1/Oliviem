@@ -15,7 +15,7 @@ namespace OLIVIEM.DAL
         public void AddProduct(Product product)
         {
             conn.Open();
-            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Image)values(@Name, @Price, @Color, @Size, @Quantity, @Image)";
+            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Image)values(@Name, @Price, @Color, @Size, @Quantity)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue(@"Name", product.Name);
             cmd.Parameters.AddWithValue(@"Price", product.Price);
@@ -27,12 +27,27 @@ namespace OLIVIEM.DAL
             conn.Close();
         }
 
-
-
-        public List<Product> GetProducts()
+        public List<Product> GetAllProducts()
         {
-            throw new NotImplementedException();
+            conn.Open();
+            string query = "SELECT * FROM [PRODUCT]";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            List<Product> productList = new List<Product>();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    productList.Add(new Product()
+                    {
+                        id = (int)reader["ProductID"],
+                        Name = (string)reader["Name"],
+                        Size = (string)reader["Size"],
+                        Color = (string)reader["Color"],
+                        Quantity = (int)reader["Quantity"]
+                    });
+                }
+            }
+            return productList;
         }
-
     }
 }

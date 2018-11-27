@@ -21,6 +21,11 @@ namespace Logic
             productrepository.AddProduct(product);
         }
 
+        public void GetAllProducts(List<Product> products)
+        {
+            productrepository.GetAllProducts(products);
+        }
+      
       
     }
 }

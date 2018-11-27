@@ -16,6 +16,7 @@
     <ProjectReference Include="..\OLIVIEM.DAL\OLIVIEM.DAL.csproj" />
     <ProjectReference Include="..\OLIVIEM.Logic\OLIVIEM.Logic.csproj" />
     <ProjectReference Include="..\OLIVIEM.Models\OLIVIEM.Models.csproj" />
+    <ProjectReference Include="..\Oliviem.Utils\Oliviem.Utils.csproj" />
   </ItemGroup>
 
 </Project>

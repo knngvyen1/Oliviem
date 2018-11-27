@@ -2,7 +2,7 @@
 using Logic;
 using OLIVIEM.DAL;
 
-namespace Facctory
+namespace Factory
 {
     public static class Factory
     {
@@ -26,6 +26,8 @@ namespace Facctory
         {
             return new Registerlogic(new Registerrepository(new RegisterDatabase()));
         }
+
+       
 
         //Public static Shoppingcart GetShoppingcartLogic()
 
