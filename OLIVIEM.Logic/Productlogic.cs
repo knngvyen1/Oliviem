@@ -21,9 +21,9 @@ namespace Logic
             productrepository.AddProduct(product);
         }
 
-        public void GetAllProducts() 
+        public List<Product> GetAllProducts() 
         {
-            productrepository.GetAllProducts();
+            return productrepository.GetAllProducts();
         }
       
       

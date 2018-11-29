@@ -4,26 +4,33 @@ using System.Linq;
 using System.Threading.Tasks;
 using Logic;
 using Microsoft.AspNetCore.Mvc;
+using OLIVIEM.Models;
+using OLIVIEM.Viewmodel;
 
 namespace OLIVIEM.Controllers
 {
     public class AllProductsController : Controller
     {
         private Productlogic productlogic;
+        public List<Product> products = new List<Product>();
+        
 
         public AllProductsController()
         {
             productlogic = Factory.Factory.GetProductslogic();
         }
-        public IActionResult Index()
+        public IActionResult Index(Productviewmodel viewmodel)
         {
-            return View();
+            viewmodel.products = productlogic.GetAllProducts();
+            return View(viewmodel);
         }
 
-        public IActionResult AllProducts()
+        [HttpGet]
+        public IActionResult AllProducts(Productviewmodel viewmodel)
         {
-            productlogic.GetAllProducts();
-            return View();
+            
+            
+            return View(viewmodel);
         }
     }
 }

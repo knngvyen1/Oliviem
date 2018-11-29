@@ -20,9 +20,9 @@ namespace DAL
             context.AddProduct(product);
         }
 
-        public void GetAllProducts()
+        public List<Product> GetAllProducts()
         {
-            context.GetAllProducts();
+           return  context.GetAllProducts();
         }
 
 
