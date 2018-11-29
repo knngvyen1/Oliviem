@@ -29,7 +29,7 @@ namespace OLIVIEM.Controllers
             viewmodel.message = "Your account has been created.";
             try
             {
-                registerlogic.AddUser(new User(viewmodel.Username, viewmodel.Password));
+                registerlogic.AddUser(new User(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
             }
             catch (Exception e)
             {

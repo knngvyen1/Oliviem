@@ -14,10 +14,15 @@ namespace DAL
         public void AddUser(User user)
         {
             conn.Open();
-            string query = "INSERT INTO [User](Username, Password)values(@Username,@Password)";
+            string query = "INSERT INTO [User] (Name, Lastname, DateOfBirth, Gender, Username, Password, Saldo)values(@nm, @ln, @dbr, @gdr, @usr, @psw, @sld)";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue(@"Username", user.username);
-            cmd.Parameters.AddWithValue(@"Password", user.password);
+            cmd.Parameters.AddWithValue("@nm", user.name);
+            cmd.Parameters.AddWithValue("@ln", user.lastname);
+            cmd.Parameters.AddWithValue("@dbr", user.dateofbirth);
+            cmd.Parameters.AddWithValue("@gdr", user.gender);
+            cmd.Parameters.AddWithValue("@usr", user.username);
+            cmd.Parameters.AddWithValue("@psw", user.password);
+            cmd.Parameters.AddWithValue("@sld", user.saldo);
             cmd.ExecuteNonQuery();
             conn.Close();
         }

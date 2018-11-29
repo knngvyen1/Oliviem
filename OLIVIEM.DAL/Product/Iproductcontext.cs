@@ -9,7 +9,7 @@ namespace DAL
 {
     public interface Iproductcontext
     {
-        List<Product> GetAllProducts(List<Product> products);
+        List<Product> GetAllProducts();
         void AddProduct(Product product);
     }
 }

@@ -33,8 +33,8 @@ namespace DAL
         }
         private void AddFakeData()
         {
-            users.Add(new User("karin", "de knapste",5 , 6));
-            users.Add(new User("viem", "de lelijkste", 5, 9));
+            //users.Add(new User("karin", "de knapste",5 , 6));
+            //users.Add(new User("viem", "de lelijkste", 5, 9));
         }
 
 

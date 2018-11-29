@@ -1,9 +1,9 @@
-﻿@model OLIVIEM.Viewmodel.RegisterViewmodel;
-
+﻿@model OLIVIEM.Viewmodel.LoginViewmodel;
 @{
-    ViewData["Title"] = "index";
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <script type="text/javascript" src="~/js/site.js"></script>
 
 <!doctype html>
@@ -22,35 +22,24 @@
     <link href="signin.css" rel="stylesheet">
 </head>
 
-
 <body class="text-center">
     <form class="form-signin" asp-controller="register" asp-action="Register">
         <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h1 class="h3 mb-3 font-weight-normal">Create account</h1><hr />
-        <input type="text" asp-for="Name" class="form-control" placeholder="Voornaam" required autofocus>
-
-        <input type="text" asp-for="Lastname" class="form-control" placeholder="Achternaam" required autofocus>
-
-        <input type="text" asp-for="DateOfBirth" class="form-control" placeholder="date of birth" required autofocus>
-        <h4> Geslacht
-        <select id="Gender" asp-for="Gender">
-            <option value="Women"> Woman</option>
-            <option value="Men">Men</option>
-        </select>
-        </h4>
+        <h1 class="h3 mb-3 font-weight-normal">Log in</h1>
+        <h5 style=" padding-left: 0px;">username</h5>
         <input type="text" asp-for="Username" class="form-control" placeholder="Username" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" asp-for="Password" class="form-control" placeholder="Password" required>
 
         <input type="submit" id="button-submit" placeholder="Registreer" onclick="registerMessage()" class="btn btn-lg btn-primary btn-block" />
-        @*@if (Model != null && !String.IsNullOrEmpty(Model.mess))
-            {
-                <label for="errormessage">Error broeder</label>
-            }
-            else
-            {
-                <label for="errormessage">DDD</label>
-            }*@
+        @*@if (Model != null && !String.IsNullOrEmpty(Model.message))
+        {
+            <label for="errormessage">Error broeder</label>
+        }
+        else
+        {
+            <label for="errormessage">DDD</label>
+        }*@
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
     </form>
 </body>
