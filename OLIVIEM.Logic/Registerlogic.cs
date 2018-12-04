@@ -22,7 +22,7 @@ namespace Logic
 
             if (user.password.Length >= MIN_PASSWORD_LENGTH)
             {
-                if (UsernameExists(user.username)== true)
+                if (UsernameExists(user.username) == false)
                 {
                     Repository.AddUser(user);
                 }
@@ -39,14 +39,9 @@ namespace Logic
             }
         }
 
-        private bool UsernameExists(string username)
+        public bool UsernameExists(string username)
         {
             return Repository.UsernameExist(username);
-        }
-
-        public User GetUser(string username)
-        {
-            return Repository.GetUser(username);
         }
 
 

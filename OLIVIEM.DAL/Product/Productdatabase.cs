@@ -50,5 +50,29 @@ namespace OLIVIEM.DAL
             }
             return productList;
         }
+
+        public Product ReadProduct(int id)
+        {
+            conn.Open();
+            string query = $"SELECT * FROM [Product] WHERE (ProductId) values (@id)";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while(reader.Read())
+                {
+                    new Product()
+                    {
+                        id = (int)reader["ProductID"],
+                        Name = (string)reader["Name"],
+                        Price = (decimal)reader["Price"],
+                        Size = (string)reader["Size"],
+                        Color = (string)reader["Color"],
+                        Quantity = (int)reader["Quantity"]
+                    };
+                }
+            }
+            return new Product();
+        }
     }
 }

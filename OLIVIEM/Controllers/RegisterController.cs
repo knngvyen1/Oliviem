@@ -18,7 +18,7 @@ namespace OLIVIEM.Controllers
             registerlogic = Factory.Factory.GetRegisterlogic();
         }
         
-
+       
         public IActionResult Index()
         {
             return View();
@@ -26,21 +26,50 @@ namespace OLIVIEM.Controllers
 
         public IActionResult Register(RegisterViewmodel viewmodel)
         {
-            viewmodel.message = "Your account has been created.";
-            try
-            {
-                registerlogic.AddUser(new User(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
-            }
-            catch (Exception e)
-            {
-                viewmodel.message = e.Message;
-                
-            }
-            finally
-            {
-                viewmodel.Password = "";
-            }
-            return View(viewmodel);
+            /* viewmodel.registration =*/
+            //if (registerlogic.UsernameExists(viewmodel.Username) == true)
+            //{
+            //    ViewBag.Message = "hai";
+            //    return View("../Login/Index");            
+            //}
+            //else
+            //{
+            //     = "kutzooi";
+            //    registerlogic.AddUser(new User(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
+            //    return View("../Register/Index");
+            //}
+
+                if (registerlogic.UsernameExists(viewmodel.Username) == true)
+                {
+                    return View("../Login/Index");
+                }
+                else
+                {
+                    registerlogic.AddUser(new User(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
+                    return View("../register/Index");
+
+                }
+            
+
+
+            //try
+            //{
+
+
+            //}
+            //catch (Exception e)
+            //{
+            //    viewmodel.message = e.Message;
+
+            //}
+            //finally
+            //{
+            //    viewmodel.Password = "";
+            //}
+            //return PartialView();
+
+
+            //return View("../Login/Index");
         }
     }
 }

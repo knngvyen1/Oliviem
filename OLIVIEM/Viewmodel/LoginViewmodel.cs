@@ -9,6 +9,8 @@ namespace OLIVIEM.Viewmodel
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public string Messsage { get; set; }
+        public bool LogIn { get; set; }
 
     }
 }

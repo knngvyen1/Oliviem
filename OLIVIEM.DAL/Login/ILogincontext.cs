@@ -7,7 +7,9 @@ namespace DAL
 {
     public interface ILogincontext
     {
-        bool Login(User user);
+        //bool Login(User user);
+        bool LogIn(string Username, string Password);
+
        
     }
 }

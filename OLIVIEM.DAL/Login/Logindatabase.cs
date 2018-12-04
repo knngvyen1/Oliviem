@@ -9,39 +9,56 @@ namespace DAL
 {
    public class Logindatabase : ILogincontext
     {
-        private static string connectionstring = "Data Source=LAPTOP-EAQU5PDBSQLEXPRESS;Initial Catalog=OLIVIEM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private SqlConnection con = new SqlConnection(connectionstring);
+        private static string connectionString = @"Data Source=LAPTOP-EAQU5PDB\SQLEXPRESS;Initial Catalog=OLIVIEM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        SqlConnection conn = new SqlConnection(connectionString);
 
         public Logindatabase()
         {
 
         }
-        public void DeleteUser(string username, string password)
+        //public void DeleteUser(string username, string password)
+        //{
+        //    con.Open();
+        //    string query = "DELETE from[User] where username = @username, password = @password";
+        //    SqlCommand cmd = new SqlCommand(query, con);
+        //    cmd.Parameters.AddWithValue(@"username", username);
+        //    cmd.Parameters.AddWithValue("@password", password);
+        //    cmd.ExecuteNonQuery();
+        //    con.Close();
+        //}
+
+        public bool LogIn(string Username, string Password)
         {
-            con.Open();
-            string query = "DELETE from[User] where username = @username, password = @password";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue(@"username", username);
-            cmd.Parameters.AddWithValue("@password", password);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            conn.Open();
+            int id = 0;
+            bool valid = true;
+            string query = " SELECT COUNT(*) AS 'CNT' FROM [User] WHERE Username = '@Username' AND Password = '@Password'";// aantal username
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue(@"Username", Username);
+            cmd.Parameters.AddWithValue(@"Password", Password);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    id = reader.GetInt32(0);
+                }
+                if (id == 1)
+                {
+                    valid = false;
+                }
+                
+            }
+            conn.Close();
+            return valid;
         }
+       
+
+
+
         // check if user exist in de database
         //check if user is ingelogd
         //if not melding user doesnt exist> registreer
 
 
-
-        public void Login(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        bool ILogincontext.Login(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        
     }
 }

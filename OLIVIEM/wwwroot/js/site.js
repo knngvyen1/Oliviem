@@ -2,6 +2,7 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
 function checkPasswordLength() {
     let password = document.getElementById("Password1").value;
     document.getElementById("button-submit").disabled = password.length < 8;

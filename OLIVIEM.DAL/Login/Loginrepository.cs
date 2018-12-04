@@ -13,17 +13,12 @@ namespace DAL
         {
             Context = context;
         }
-        //public Loginrepository(Logindatabase database)
-        //{
-        //    this.database = database;
-        //}
 
-        public bool Login(User user)
+        public bool LogIn(string Username, string Password)
         {
-            return Context.Login(user); 
+            return Context.LogIn(Username, Password);
         }
 
-      
-        
+
     }
 }

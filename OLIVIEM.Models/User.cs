@@ -37,10 +37,10 @@ namespace Models
             password = Password;
         }
         public User(string Username)
-        {
-            username = Username;
+            {
+                username = Username;
+            }
+
+
         }
-
-
-    }
 }

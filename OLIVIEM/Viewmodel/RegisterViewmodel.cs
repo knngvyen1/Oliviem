@@ -8,6 +8,7 @@ namespace OLIVIEM.Viewmodel
     public class RegisterViewmodel
     {
         public int Id { get; set; }
+        public bool registration;
         public string Name { get; set; }
         public string Lastname { get; set; }
         public DateTime DateOfBirth { get; set; }
