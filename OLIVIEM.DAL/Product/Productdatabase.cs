@@ -51,7 +51,7 @@ namespace OLIVIEM.DAL
             return productList;
         }
 
-        public Product ReadProduct(int id)
+        public Product GetProduct(int id)
         {
             conn.Open();
             string query = $"SELECT * FROM [Product] WHERE (ProductId) values (@id)";

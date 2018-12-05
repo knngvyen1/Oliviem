@@ -24,6 +24,10 @@ namespace DAL
         {
            return  context.GetAllProducts();
         }
+       public Product GetProduct(int id)
+        {
+            return context.GetProduct(id);
+        }
 
 
     }

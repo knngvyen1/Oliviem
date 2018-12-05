@@ -11,5 +11,6 @@ namespace DAL
     {
         List<Product> GetAllProducts();
         void AddProduct(Product product);
+        Product GetProduct(int id);
     }
 }

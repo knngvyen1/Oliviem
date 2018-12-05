@@ -25,6 +25,11 @@ namespace Logic
         {
             return productrepository.GetAllProducts();
         }
+
+        public Product GetProduct(int id)
+        {
+            return productrepository.GetProduct(id);
+        }
       
       
     }
