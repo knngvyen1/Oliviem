@@ -18,9 +18,7 @@ namespace Logic
 
         public bool LogIn(string Username, string Password)
         {
-          return repository.LogIn(Username, Password);
-
-          
+          return repository.LogIn(Username, Password);        
         }
 
         //Usecase 1 en 2

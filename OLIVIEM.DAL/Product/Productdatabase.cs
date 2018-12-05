@@ -54,14 +54,14 @@ namespace OLIVIEM.DAL
         public Product GetProduct(int id)
         {
             conn.Open();
-            string query = $"SELECT * FROM [Product] WHERE (ProductId) values (@id)";
+            string query = $"SELECT * FROM [Product] WHERE ProductID = @id";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue("@id", id);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 while(reader.Read())
                 {
-                    new Product()
+                    return new Product()
                     {
                         id = (int)reader["ProductID"],
                         Name = (string)reader["Name"],

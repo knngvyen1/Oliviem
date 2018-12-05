@@ -15,8 +15,9 @@ namespace OLIVIEM.Models
         //public string Image { get; set; }
         
         public Product() { }
-        public Product(string name, string size, string color, decimal price, int quantity/*, string image*/)
+        public Product(int Id, string name, string size, string color, decimal price, int quantity/*, string image*/)
         {
+            Id = id;
             Name = name;
             Size = size;
             Color = color;
