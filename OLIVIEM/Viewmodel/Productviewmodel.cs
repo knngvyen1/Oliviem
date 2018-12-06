@@ -19,5 +19,6 @@ namespace OLIVIEM.Viewmodel
         public int Quantity { get; set; }
         public string Image { get; set; }
         public string Message { get; set; }
+        public string Description { get; set; }
     }
 }

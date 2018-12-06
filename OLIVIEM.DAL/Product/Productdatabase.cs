@@ -15,13 +15,14 @@ namespace OLIVIEM.DAL
         public void AddProduct(Product product)
         {
             conn.Open();
-            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity) values(@Name, @Price, @Color, @Size, @Quantity)";
+            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Description) values(@Name, @Price, @Color, @Size, @Quantity, @Description)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue(@"Name", product.Name);
             cmd.Parameters.AddWithValue(@"Price", product.Price);
             cmd.Parameters.AddWithValue(@"Color", product.Color);
             cmd.Parameters.AddWithValue(@"Size", product.Size);
             cmd.Parameters.AddWithValue(@"Quantity", product.Quantity);
+            cmd.Parameters.AddWithValue(@"Description", product.description);
             //cmd.Parameters.AddWithValue(@"Image", product.Image);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -41,10 +42,11 @@ namespace OLIVIEM.DAL
                     {
                         id = (int)reader["ProductID"],
                         Name = (string)reader["Name"],
-                        Price = (decimal) reader["Price"],
+                        Price = (decimal)reader["Price"],
                         Size = (string)reader["Size"],
                         Color = (string)reader["Color"],
-                        Quantity = (int)reader["Quantity"]
+                        Quantity = (int)reader["Quantity"],
+                        description = (string)reader["Description"]
                     });
                 }
             }
@@ -68,7 +70,8 @@ namespace OLIVIEM.DAL
                         Price = (decimal)reader["Price"],
                         Size = (string)reader["Size"],
                         Color = (string)reader["Color"],
-                        Quantity = (int)reader["Quantity"]
+                        Quantity = (int)reader["Quantity"],
+                        description = (string)reader["Description"]
                     };
                 }
             }
