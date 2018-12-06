@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using Models;
+using OLIVIEM.Models;
 
 namespace DAL
 {
@@ -11,7 +12,7 @@ namespace DAL
         private static string connectionString = @"Data Source=LAPTOP-EAQU5PDB\SQLEXPRESS;Initial Catalog=OLIVIEM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         SqlConnection conn = new SqlConnection(connectionString);
 
-        public void AddUser(User user)
+        public void AddUser(Account user)
         {
             conn.Open();
             string query = "INSERT INTO [User] (Name, Lastname, DateOfBirth, Gender, Username, Password, Saldo)values(@nm, @ln, @dbr, @gdr, @usr, @psw, @sld)";
@@ -26,7 +27,7 @@ namespace DAL
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        public User GetUser(string username)
+        public Account GetUser(string username)
         {
             conn.Open();
             string query = $"Select username FROM [User] WHERE username = '{username}'";
@@ -35,14 +36,14 @@ namespace DAL
             {
                 while (reader.Read())
                 {
-                    new User()
+                    new Account()
                     {
                         username = (string)reader["username"],
                       
                     };
                 }
             }
-            return new User();
+            return new Account();
         }
         public bool UsernameExist(string username)
          {

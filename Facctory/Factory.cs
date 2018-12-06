@@ -1,6 +1,8 @@
 ﻿using DAL;
 using Logic;
 using OLIVIEM.DAL;
+using OLIVIEM.DAL.Account;
+using OLIVIEM.Logic;
 
 namespace Factory
 {
@@ -15,6 +17,11 @@ namespace Factory
         public static Productlogic GetProductslogic()
         {
             return new Productlogic(new Productrepository(new ProductDatabase()));
+        }
+
+        public static Accountlogic GetAccountlogic()
+        {
+            return new Accountlogic(new Accountrepository(new Accountdatabase()));
         }
 
         //public static Orderlogic GetOrderLogic()

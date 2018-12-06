@@ -23,4 +23,8 @@
     <ProjectReference Include="..\OLIVIEM.Models\OLIVIEM.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Account\" />
+  </ItemGroup>
+
 </Project>

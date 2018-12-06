@@ -4,7 +4,9 @@ using System.Text;
 
 namespace OLIVIEM.DAL.Account
 {
-   public interface IUserContext
+   public interface IAccountcontext
     {
+        void AddSaldo(double saldo, int id);
+        int Getsaldo(int id);
     }
 }

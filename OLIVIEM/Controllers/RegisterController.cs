@@ -45,7 +45,7 @@ namespace OLIVIEM.Controllers
                 }
                 else
                 {
-                    registerlogic.AddUser(new User(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
+                    registerlogic.AddUser(new Models.Account(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
                     return View("../register/Index");
 
                 }

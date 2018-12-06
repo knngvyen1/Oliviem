@@ -9,10 +9,10 @@ namespace Oliviem.Utils
     {
         private Cloudinary _cloudinary;
        
-        public CloudinaryUtil()
-        {
-            _cloudinary = new Cloudinary(new Account("knngvyen", "513856637581116", "A-taBdU89jvvT_YgRZ0k48UpxNs"));
-        }
+        //public CloudinaryUtil()
+        //{
+        //    _cloudinary = new Cloudinary(new Account("knngvyen", "513856637581116", "A-taBdU89jvvT_YgRZ0k48UpxNs"));
+        //}
 
         public Photo UploadPicture(string relativePath, string publicId)
         {

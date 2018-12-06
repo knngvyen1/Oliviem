@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Models
+namespace OLIVIEM.Models
 {
-    public class User
+   public class Account
     {
         public int id { get; set; }
         public string name { get; set; }
@@ -15,7 +15,7 @@ namespace Models
         public string password { get; set; }
         public double saldo { get; set; }
 
-        public User(string Name, string Lastname, DateTime DateOfbirth, string Gender, string Username, string Password, double Saldo)
+        public Account(string Name, string Lastname, DateTime DateOfbirth, string Gender, string Username, string Password, double Saldo)
         {
             name = Name;
             lastname = Lastname;
@@ -26,21 +26,19 @@ namespace Models
             saldo = Saldo;
         }
 
-        public User()
+        public Account()
         {
 
         }
 
-        public User(string Username, string Password)
+        public Account(string Username, string Password)
         {
             username = Username;
             password = Password;
         }
-        public User(string Username)
-            {
-                username = Username;
-            }
-
-
+        public Account(string Username)
+        {
+            username = Username;
         }
+    }
 }

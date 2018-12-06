@@ -1,5 +1,6 @@
 ﻿using DAL;
 using Models;
+using OLIVIEM.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,7 +18,7 @@ namespace Logic
             this.Repository = registerrepository;
         }
 
-        public void AddUser(User user)
+        public void AddUser(Account user)
         {
 
             if (user.password.Length >= MIN_PASSWORD_LENGTH)
