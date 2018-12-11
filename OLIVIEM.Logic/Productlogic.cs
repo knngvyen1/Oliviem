@@ -16,8 +16,13 @@ namespace Logic
             this.productrepository = productrepository;
         }
 
+
         public void Addproduct(Product product)
         {
+            if (!productrepository.CategoryExists(1))
+            {
+                throw new Exception("lol");
+            }
             productrepository.AddProduct(product);
         }
 
@@ -25,6 +30,11 @@ namespace Logic
         {
             return productrepository.GetAllProducts();
         }
+
+        //public List<Product> GetAllWomenProducts()
+        //{
+        //    return productrepository.GetAllWomenProducts();
+        //}
 
         public Product GetProduct(int id)
         {

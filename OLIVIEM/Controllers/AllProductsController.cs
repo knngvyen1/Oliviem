@@ -32,5 +32,13 @@ namespace OLIVIEM.Controllers
             
             return View(viewmodel);
         }
+
+        [HttpGet]
+        public IActionResult Women(Productviewmodel viewmodel)
+        {
+            return View(viewmodel);
+        }
+
+
     }
 }

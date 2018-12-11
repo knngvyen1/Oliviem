@@ -20,11 +20,17 @@ namespace DAL
             context.AddProduct(product);
         }
 
+        public bool CategoryExists(int id)
+        {
+            return context.CategoryExists(id);
+        }
+
         public List<Product> GetAllProducts()
         {
            return  context.GetAllProducts();
         }
-       public Product GetProduct(int id)
+
+        public Product GetProduct(int id)
         {
             return context.GetProduct(id);
         }

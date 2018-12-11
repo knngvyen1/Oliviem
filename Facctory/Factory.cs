@@ -2,6 +2,7 @@
 using Logic;
 using OLIVIEM.DAL;
 using OLIVIEM.DAL.Account;
+using OLIVIEM.DAL.Category;
 using OLIVIEM.Logic;
 
 namespace Factory

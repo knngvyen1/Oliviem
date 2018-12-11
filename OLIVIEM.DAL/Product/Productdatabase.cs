@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using DAL;
 using OLIVIEM.Models;
+using System.Data;
 
 namespace OLIVIEM.DAL
 {
@@ -15,15 +16,15 @@ namespace OLIVIEM.DAL
         public void AddProduct(Product product)
         {
             conn.Open();
-            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Description) values(@Name, @Price, @Color, @Size, @Quantity, @Description)";
+            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Description, CategoryID) values(@Name, @Price, @Color, @Size, @Quantity, @Description, @CategoryID)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue(@"Name", product.Name);
             cmd.Parameters.AddWithValue(@"Price", product.Price);
             cmd.Parameters.AddWithValue(@"Color", product.Color);
             cmd.Parameters.AddWithValue(@"Size", product.Size);
             cmd.Parameters.AddWithValue(@"Quantity", product.Quantity);
-            cmd.Parameters.AddWithValue(@"Description", product.description);
-            //cmd.Parameters.AddWithValue(@"Image", product.Image);
+            cmd.Parameters.AddWithValue(@"Description", product.Description);
+            cmd.Parameters.AddWithValue(@"CategoryID", product.CategoryID);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -46,12 +47,20 @@ namespace OLIVIEM.DAL
                         Size = (string)reader["Size"],
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],
-                        description = (string)reader["Description"]
+                        Description = (string)reader["Description"],
+                        CategoryID = (int)reader["CategoryID"]
                     });
                 }
             }
             return productList;
         }
+
+        //public List<Product> GetAllWomenProducts(string category)
+        //{
+        //    conn.Open();
+        //    string query = $"SELECT * from [Product] where color in (select COLOR from Product where color = '{category}')";
+
+        //}
 
         public Product GetProduct(int id)
         {
@@ -71,11 +80,32 @@ namespace OLIVIEM.DAL
                         Size = (string)reader["Size"],
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],
-                        description = (string)reader["Description"]
+                        Description = (string)reader["Description"],
+                        CategoryID = (int)reader["CategoryID"]
                     };
                 }
             }
             return new Product();
+        }
+
+        public bool CategoryExists(int id)
+        {
+            SqlCommand cmd = new SqlCommand("dbo.CategoryExists", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CategoryId", id);
+            conn.Open();
+            var test = cmd.ExecuteReader();
+            while (test.Read())
+            {
+                if (test.HasRows)
+                {
+                    conn.Close();
+                    return true;
+                }
+            }
+            conn.Close();
+            return false;
+
         }
     }
 }

@@ -15,6 +15,7 @@ namespace OLIVIEM.DAL.Account
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
+                //prepared q
                 conn.Open();
                 string query = $"UPDATE [User] SET saldo += { saldo } WHERE [User].Userid = {id}";
                 SqlCommand cmd = new SqlCommand(query, conn);

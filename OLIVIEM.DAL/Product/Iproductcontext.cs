@@ -10,7 +10,10 @@ namespace DAL
     public interface Iproductcontext
     {
         List<Product> GetAllProducts();
+        //List<Product> GetAllWomenProducts();
         void AddProduct(Product product);
         Product GetProduct(int id);
+
+        bool CategoryExists(int id);
     }
 }
