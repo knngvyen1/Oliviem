@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 using Logic;
 using Microsoft.AspNetCore.Mvc;
 using OLIVIEM.Viewmodel;
+using Models;
+using OLIVIEM.Models;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace OLIVIEM.Controllers
 {
@@ -27,6 +31,13 @@ namespace OLIVIEM.Controllers
             
             if (loginlogic.LogIn(viewmodel.Username, viewmodel.Password)== true)
             {
+                Account account = new Account()
+                {
+                    id = 2,
+                    name = "kechie"
+                };
+
+                HttpContext.Session.SetString("AccountSession", JsonConvert.SerializeObject(account));
                 viewmodel.Messsage = "inloggen gelukt";
                 return View("../Home/index");
             }

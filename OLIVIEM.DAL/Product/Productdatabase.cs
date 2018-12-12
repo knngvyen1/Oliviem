@@ -16,7 +16,7 @@ namespace OLIVIEM.DAL
         public void AddProduct(Product product)
         {
             conn.Open();
-            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Description, CategoryID) values(@Name, @Price, @Color, @Size, @Quantity, @Description, @CategoryID)";
+            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Description, CategoryID, Image) values(@Name, @Price, @Color, @Size, @Quantity, @Description, @CategoryID, @Image)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue(@"Name", product.Name);
             cmd.Parameters.AddWithValue(@"Price", product.Price);
@@ -25,6 +25,7 @@ namespace OLIVIEM.DAL
             cmd.Parameters.AddWithValue(@"Quantity", product.Quantity);
             cmd.Parameters.AddWithValue(@"Description", product.Description);
             cmd.Parameters.AddWithValue(@"CategoryID", product.CategoryID);
+            cmd.Parameters.AddWithValue(@"Image", product.Image);
             cmd.ExecuteNonQuery();
             conn.Close();
         }
@@ -48,17 +49,18 @@ namespace OLIVIEM.DAL
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],
                         Description = (string)reader["Description"],
-                        CategoryID = (int)reader["CategoryID"]
+                        CategoryID = (int)reader["CategoryID"],
+                        Image = (string)reader["Image"]
                     });
                 }
             }
             return productList;
         }
 
-        //public List<Product> GetAllWomenProducts(string category)
+        //public List<Product> GetcategoryProducts(string category)
         //{
         //    conn.Open();
-        //    string query = $"SELECT * from [Product] where color in (select COLOR from Product where color = '{category}')";
+        //    string query = $"SELECT * from [Product] where category in (select CATEGORY from Product where category = '{category}')";
 
         //}
 
@@ -81,7 +83,8 @@ namespace OLIVIEM.DAL
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],
                         Description = (string)reader["Description"],
-                        CategoryID = (int)reader["CategoryID"]
+                        CategoryID = (int)reader["CategoryID"],
+                        Image = (string)reader["Image"]
                     };
                 }
             }

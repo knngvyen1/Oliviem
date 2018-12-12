@@ -24,7 +24,7 @@ namespace Oliviem.Utils
 
             var uploadResult = this._cloudinary.Upload(uploadParams);
 
-            return new Photo() { Name = uploadResult.PublicId, Path = uploadResult.Uri.AbsoluteUri };
+            return new Photo() { Name = uploadResult.PublicId, Path = uploadResult.Uri.AbsoluteUri};
         }
 
      

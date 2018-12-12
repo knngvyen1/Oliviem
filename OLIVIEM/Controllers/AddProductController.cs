@@ -25,7 +25,7 @@ namespace OLIVIEM.Controllers
         {
             try
             {
-                productlogic.Addproduct(new Product(viewmodel.Id ,viewmodel.Name, viewmodel.Size, viewmodel.Color, viewmodel.Price, viewmodel.Quantity, viewmodel.Description, viewmodel.CategoryID));
+                productlogic.Addproduct(new Product(viewmodel.Id ,viewmodel.Name, viewmodel.Size, viewmodel.Color, viewmodel.Price, viewmodel.Quantity, viewmodel.Description, viewmodel.CategoryID, viewmodel.Image));
             }
             catch (Exception e)
             {
