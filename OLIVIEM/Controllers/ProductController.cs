@@ -12,22 +12,37 @@ namespace OLIVIEM.Controllers
     public class ProductController : Controller
     {
         private Productlogic productlogic;
+        public List<Product> products = new List<Product>();
         public ProductController()
         {
             productlogic = Factory.Factory.GetProductslogic();
         }
-        [HttpGet]
-        public IActionResult Index(int id)
-        {
-            var k = productlogic.GetProduct(id);
-            Productviewmodel test = new Productviewmodel();
-            test.Id = k.id;
-            test.Name = k.Name;
-            test.Price = k.Price;
 
-            return View(test);
+        public IActionResult Index(Productviewmodel viewmodel)
+        {
+            
+            return View();
         }
-        
-        //product ID meegeven
+
+        [HttpPost]
+        public IActionResult AddProduct(Productviewmodel viewmodel)
+        {
+            try
+            {
+                productlogic.Addproduct(new Product(viewmodel.Id, viewmodel.Name, viewmodel.Size, viewmodel.Color, viewmodel.Price, viewmodel.Quantity, viewmodel.Description, viewmodel.CategoryID, viewmodel.Image));
+            }
+            catch (Exception e)
+            {
+
+                viewmodel.Message = e.Message;
+            }
+            return View(viewmodel);
+        }
+
+        [HttpGet]
+        public IActionResult AllProducts(Productviewmodel viewmodel)
+        {
+            return View(viewmodel);
+        }
     }
 }

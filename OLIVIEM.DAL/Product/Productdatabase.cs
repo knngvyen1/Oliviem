@@ -44,7 +44,7 @@ namespace OLIVIEM.DAL
                     {
                         id = (int)reader["ProductID"],
                         Name = (string)reader["Name"],
-                        Price = (decimal)reader["Price"],
+                        Price = (int)reader["Price"],
                         Size = (string)reader["Size"],
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],

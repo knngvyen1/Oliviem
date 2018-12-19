@@ -15,9 +15,15 @@ namespace OLIVIEM.Models
         public string Description { get; set; }
         public int CategoryID { get; set; }
         public string Image { get; set; }
-                                           //public string Image { get; set; }
+        //public string Image { get; set; }
 
         public Product() { }
+
+        public Product(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
         public Product(int Id, string name, string size, string color, decimal price, int quantity, string description, int categoryid, string image)
         {
             Id = id;
@@ -29,9 +35,6 @@ namespace OLIVIEM.Models
             Description = description;
             CategoryID = categoryid;
             Image = image;
-
-
-
         }
     }
 }

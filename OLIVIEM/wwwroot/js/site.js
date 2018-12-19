@@ -3,8 +3,14 @@
 
 // Write your JavaScript code.
 
+
+
+
+
+
+
 function checkPasswordLength() {
-    let password = document.getElementById("Password1").value;
+    let password = document.getElementById("Password").value;
     document.getElementById("button-submit").disabled = password.length < 8;
 }
 
