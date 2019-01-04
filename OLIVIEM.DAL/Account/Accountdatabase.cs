@@ -11,7 +11,7 @@ namespace OLIVIEM.DAL.Account
         SqlConnection conn = new SqlConnection(connectionString);
 
 
-        public void AddSaldo(double saldo, int id)
+        public void AddSaldo(decimal saldo, int id)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {

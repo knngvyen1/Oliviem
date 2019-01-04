@@ -19,10 +19,7 @@ namespace Logic
 
         public void Addproduct(Product product)
         {
-            if (!productrepository.CategoryExists(1))
-            {
-                throw new Exception("Does not exist");
-            }
+     
             productrepository.AddProduct(product);
         }
 

@@ -12,7 +12,7 @@ namespace OLIVIEM.DAL.Account
             context = Context;
         }
 
-        public void AddSaldo(double saldo, int id)
+        public void AddSaldo(decimal saldo, int id)
         {
             context.AddSaldo(saldo, id);
         }

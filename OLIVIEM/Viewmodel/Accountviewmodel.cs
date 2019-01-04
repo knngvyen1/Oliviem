@@ -8,6 +8,6 @@ namespace OLIVIEM.Viewmodel
     public class Accountviewmodel
     {
         public int Id { get; set; }
-        public double Saldo { get; set; }
+        public decimal Saldo { get; set; }
     }
 }

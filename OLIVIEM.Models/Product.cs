@@ -13,7 +13,7 @@ namespace OLIVIEM.Models
         public decimal Price { get; set; }
         public int Quantity { get; set; }
         public string Description { get; set; }
-        public int CategoryID { get; set; }
+        public string CategoryName { get; set; }
         public string Image { get; set; }
         //public string Image { get; set; }
 
@@ -24,7 +24,7 @@ namespace OLIVIEM.Models
             Name = name;
             Description = description;
         }
-        public Product(int Id, string name, string size, string color, decimal price, int quantity, string description, int categoryid, string image)
+        public Product(int Id, string name, string size, string color, decimal price, int quantity, string description, string categoryName, string image)
         {
             Id = id;
             Name = name;
@@ -33,7 +33,7 @@ namespace OLIVIEM.Models
             Price = price;
             Quantity = quantity;
             Description = description;
-            CategoryID = categoryid;
+            CategoryName = categoryName;
             Image = image;
         }
     }

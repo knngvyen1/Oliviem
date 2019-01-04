@@ -13,7 +13,7 @@ namespace OLIVIEM.Logic
             accountrepository = Accountrepository;
         }
 
-        public void AddSaldo(double saldo, int id)
+        public void AddSaldo(decimal saldo, int id)
         {
             accountrepository.AddSaldo(saldo, id);
         }

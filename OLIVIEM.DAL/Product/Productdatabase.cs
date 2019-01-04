@@ -16,7 +16,7 @@ namespace OLIVIEM.DAL
         public void AddProduct(Product product)
         {
             conn.Open();
-            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Description, CategoryID, Image) values(@Name, @Price, @Color, @Size, @Quantity, @Description, @CategoryID, @Image)";
+            string query = "INSERT INTO [Product](Name, Price, Color, Size, Quantity, Description, CategoryName, Image) values(@Name, @Price, @Color, @Size, @Quantity, @Description, @CategoryName, @Image)";
             SqlCommand cmd = new SqlCommand(query, conn);
             cmd.Parameters.AddWithValue(@"Name", product.Name);
             cmd.Parameters.AddWithValue(@"Price", product.Price);
@@ -24,7 +24,7 @@ namespace OLIVIEM.DAL
             cmd.Parameters.AddWithValue(@"Size", product.Size);
             cmd.Parameters.AddWithValue(@"Quantity", product.Quantity);
             cmd.Parameters.AddWithValue(@"Description", product.Description);
-            cmd.Parameters.AddWithValue(@"CategoryID", product.CategoryID);
+            cmd.Parameters.AddWithValue(@"CategoryName", product.CategoryName);
             cmd.Parameters.AddWithValue(@"Image", product.Image);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -49,7 +49,7 @@ namespace OLIVIEM.DAL
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],
                         Description = (string)reader["Description"],
-                        CategoryID = (int)reader["CategoryID"],
+                        CategoryName = (string)reader["CategoryName"],
                         Image = (string)reader["Image"]
                     });
                 }
@@ -83,7 +83,7 @@ namespace OLIVIEM.DAL
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],
                         Description = (string)reader["Description"],
-                        CategoryID = (int)reader["CategoryID"],
+                        CategoryName = (string)reader["CategoryName"],
                         Image = (string)reader["Image"]
                     };
                 }
@@ -91,11 +91,11 @@ namespace OLIVIEM.DAL
             return new Product();
         }
 
-        public bool CategoryExists(int id)
+        public bool CategoryExists(int CategoryName)
         {
             SqlCommand cmd = new SqlCommand("dbo.CategoryExists", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@CategoryId", id);
+            cmd.Parameters.AddWithValue("@CategoryName", CategoryName);
             conn.Open();
             var test = cmd.ExecuteReader();
             while (test.Read())
@@ -109,6 +109,32 @@ namespace OLIVIEM.DAL
             conn.Close();
             return false;
 
+        }
+
+        public List<Product> GetAllProductsTest()
+        {
+            SqlCommand cmd = new SqlCommand("dbo.GetProducts", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            List<Product> productList = new List<Product>();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    productList.Add(new Product()
+                    {
+                        id = (int)reader["ProductID"],
+                        Name = (string)reader["Name"],
+                        Price = (int)reader["Price"],
+                        Size = (string)reader["Size"],
+                        Color = (string)reader["Color"],
+                        Quantity = (int)reader["Quantity"],
+                        Description = (string)reader["Description"],
+                        CategoryName = (string)reader["CategoryName"],
+                        Image = (string)reader["Image"]
+                    });
+                }
+            }
+            return productList;
         }
     }
 }

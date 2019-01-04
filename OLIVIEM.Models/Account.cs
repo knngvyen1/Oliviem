@@ -13,9 +13,10 @@ namespace OLIVIEM.Models
         public string gender { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public double saldo { get; set; }
+        public decimal saldo { get; set; }
 
-        public Account(string Name, string Lastname, DateTime DateOfbirth, string Gender, string Username, string Password, double Saldo)
+
+        public Account(string Name, string Lastname, DateTime DateOfbirth, string Gender, string Username, string Password, decimal Saldo)
         {
             name = Name;
             lastname = Lastname;
@@ -24,6 +25,7 @@ namespace OLIVIEM.Models
             username = Username;
             password = Password;
             saldo = Saldo;
+           
         }
 
         public Account()

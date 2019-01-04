@@ -6,7 +6,7 @@ namespace OLIVIEM.DAL.Account
 {
    public interface IAccountcontext
     {
-        void AddSaldo(double saldo, int id);
+        void AddSaldo(decimal saldo, int id);
         int Getsaldo(int id);
     }
 }
