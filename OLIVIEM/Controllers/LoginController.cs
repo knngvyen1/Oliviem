@@ -39,12 +39,12 @@ namespace OLIVIEM.Controllers
 
                 HttpContext.Session.SetString("AccountSession", JsonConvert.SerializeObject(account));
                 viewmodel.Messsage = "inloggen gelukt";
-                return View("../Home/index");//verwijzen naar andere pagina
+                return View("../Home/index");
             }
             else
             {
                 viewmodel.Messsage = "Username/password onjuist";
-                return View("../Login/index"); //verwijzen naar andere pagina
+                return View("../Login/index"); 
             }
 
         }

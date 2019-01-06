@@ -32,22 +32,19 @@ namespace DAL
         {
             conn.Open();
             int id = 0;
-            bool valid = true;
-            string query = " SELECT COUNT(*) AS 'CNT' FROM [User] WHERE Username = '@Username' AND Password = '@Password'";// aantal username
+            bool valid = false;
+            string query = $"SELECT COUNT(*) AS 'CNT' FROM [User] WHERE Username = '{Username}' AND Password = '{Password}'";
             SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue(@"Username", Username);
-            cmd.Parameters.AddWithValue(@"Password", Password);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
                     id = reader.GetInt32(0);
-                }
-                if (id == 1)
-                {
-                    valid = false;
-                }
-                
+                }               
+            }
+            if (id == 1)
+            {
+                valid = true;
             }
             conn.Close();
             return valid;
