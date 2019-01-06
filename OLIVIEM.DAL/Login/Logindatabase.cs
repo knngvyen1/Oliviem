@@ -27,6 +27,7 @@ namespace DAL
         //    con.Close();
         //}
 
+            //Username en Password valid
         public bool LogIn(string Username, string Password)
         {
             conn.Open();

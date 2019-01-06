@@ -27,11 +27,11 @@ namespace Logic
         {
             return productrepository.GetAllProducts();
         }
+        public List<Product> GetCategoryproducts(string category)
+        {
+            return productrepository.GetCategoryproducts(category);
+        }
 
-        //public List<Product> GetAllWomenProducts()
-        //{
-        //    return productrepository.GetAllWomenProducts();
-        //}
 
         public Product GetProduct(int id)
         {

@@ -44,5 +44,11 @@ namespace OLIVIEM.Controllers
         {
             return View(viewmodel);
         }
+
+        [HttpGet]
+        public IActionResult GetCategoryproduct(Productviewmodel viewmodel)
+        {
+            return View(viewmodel);
+        }
     }
 }

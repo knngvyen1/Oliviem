@@ -57,13 +57,6 @@ namespace OLIVIEM.DAL
             return productList;
         }
 
-        //public List<Product> GetcategoryProducts(string category)
-        //{
-        //    conn.Open();
-        //    string query = $"SELECT * from [Product] where category in (select CATEGORY from Product where category = '{category}')";
-
-        //}
-
         public Product GetProduct(int id)
         {
             conn.Open();
@@ -108,9 +101,9 @@ namespace OLIVIEM.DAL
             }
             conn.Close();
             return false;
-
         }
-
+        //categorien
+       
         public List<Product> GetAllProductsTest()
         {
             SqlCommand cmd = new SqlCommand("dbo.GetProducts", conn);
@@ -136,5 +129,32 @@ namespace OLIVIEM.DAL
             }
             return productList;
         }
-    }
+
+        public List<Product> GetCategoryproducts(string category)
+        {         
+             List<Product> productList = new List<Product>();
+            conn.Open();
+            string query = $"SELECT Product.Name, Category.Name FROM [Product] inner join [Category] where CategoryName = {category}";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    productList.Add(new Product()
+                    {
+                        id = (int)reader["ProductID"],
+                        Name = (string)reader["Name"],
+                        Price = (int)reader["Price"],
+                        Size = (string)reader["Size"],
+                        Color = (string)reader["Color"],
+                        Quantity = (int)reader["Quantity"],
+                        Description = (string)reader["Description"],
+                        CategoryName = (string)reader["CategoryName"],
+                        Image = (string)reader["Image"]
+                    });
+                }
+            }
+            return productList;
+        }
+    }   
 }

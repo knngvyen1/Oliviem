@@ -34,6 +34,10 @@ namespace DAL
         {
             return context.GetProduct(id);
         }
+        public List<Product> GetCategoryproducts(string category)
+        {
+            return context.GetCategoryproducts(category);
+        }
 
 
     }

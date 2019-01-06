@@ -15,5 +15,7 @@ namespace DAL
         Product GetProduct(int id);
 
         bool CategoryExists(int id);
+        List<Product> GetCategoryproducts(string category);
+
     }
 }

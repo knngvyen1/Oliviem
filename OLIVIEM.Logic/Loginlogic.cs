@@ -10,7 +10,6 @@ namespace Logic
     {
         private Loginrepository repository;
 
-
         public Loginlogic(Loginrepository Repository)
         {
            repository = Repository;
@@ -20,20 +19,5 @@ namespace Logic
         {
           return repository.LogIn(Username, Password);        
         }
-
-        //Usecase 1 en 2
-        //public bool Login(User user)
-        //{
-        //    if (user.password.Length <= 8)
-        //    {
-        //        return false;
-        //    }
-        //    return repository.Login(user); 
-        //}
-
-
-
-
-
     }
 }

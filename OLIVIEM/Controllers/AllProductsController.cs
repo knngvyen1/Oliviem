@@ -28,17 +28,16 @@ namespace OLIVIEM.Controllers
         [HttpGet]
         public IActionResult AllProducts(Productviewmodel viewmodel)
         {
-            
-            
+          
             return View(viewmodel);
         }
 
         [HttpGet]
-        public IActionResult Women(Productviewmodel viewmodel)
+        public IActionResult GetCategoryproduct(Productviewmodel viewmodel)
         {
+            viewmodel.Categorylist = productlogic.GetCategoryproducts(viewmodel.CategoryName);
             return View(viewmodel);
         }
-
 
     }
 }

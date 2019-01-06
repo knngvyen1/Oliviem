@@ -26,36 +26,11 @@ namespace OLIVIEM.Controllers
 
         public IActionResult Register(RegisterViewmodel viewmodel)
         {
-            /* viewmodel.registration =*/
-            //if (registerlogic.UsernameExists(viewmodel.Username) == true)
-            //{
-            //    ViewBag.Message = "hai";
-            //    return View("../Login/Index");            
-            //}
-            //else
-            //{
-            //     = "kutzooi";
-            //    registerlogic.AddUser(new User(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
-            //    return View("../Register/Index");
-            //}
-
-                if (registerlogic.UsernameExists(viewmodel.Username) == true)
-                {
-                    return View("../Login/Index");
-                }
-                else
-                {
-                    registerlogic.AddUser(new Models.Account(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
-                    return View("../register/Index");
-
-                }
-            
-
+            registerlogic.AddUser(new Models.Account(viewmodel.Name, viewmodel.Lastname, viewmodel.DateOfBirth, viewmodel.Gender, viewmodel.Username, viewmodel.Password, viewmodel.Saldo));
+            return View("../Login/Index");
 
             //try
             //{
-
-
             //}
             //catch (Exception e)
             //{
