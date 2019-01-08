@@ -11,7 +11,8 @@ namespace OLIVIEM.Viewmodel
     public class Productviewmodel
     {
         public List<Product> products { get; set; }
-        public List<Product> Categorylist { get; set; }
+        public List<Product> Categorylistproducts { get; set; }
+        public List<string> Categorylist { get; set; }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Size { get; set; }

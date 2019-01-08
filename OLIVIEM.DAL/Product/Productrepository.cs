@@ -39,6 +39,9 @@ namespace DAL
             return context.GetCategoryproducts(category);
         }
 
-
+        public List<string> GetAllCategoryNames()
+        {
+            return context.GetAllCategoryNames();
+        }
     }
 }

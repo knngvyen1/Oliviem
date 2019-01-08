@@ -31,12 +31,16 @@ namespace Logic
         {
             return productrepository.GetCategoryproducts(category);
         }
-
+        public List<string> GetAllCategoryNames()
+        {
+            return productrepository.GetAllCategoryNames();
+        }
 
         public Product GetProduct(int id)
         {
             return productrepository.GetProduct(id);
         }
+        
       
       
     }

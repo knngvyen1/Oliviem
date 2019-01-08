@@ -35,8 +35,17 @@ namespace OLIVIEM.Controllers
         [HttpGet]
         public IActionResult GetCategoryproduct(Productviewmodel viewmodel)
         {
-            viewmodel.Categorylist = productlogic.GetCategoryproducts(viewmodel.CategoryName);
+            viewmodel.Categorylistproducts = productlogic.GetCategoryproducts(viewmodel.CategoryName);
             return View(viewmodel);
+        }
+
+        [HttpGet]
+        public IActionResult Getproduct(int id)
+        {
+            
+            
+            return View(productlogic.GetProduct(id));
+            
         }
 
     }

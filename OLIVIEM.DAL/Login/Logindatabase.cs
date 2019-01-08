@@ -16,18 +16,18 @@ namespace DAL
         {
 
         }
-        //public void DeleteUser(string username, string password)
-        //{
-        //    con.Open();
-        //    string query = "DELETE from[User] where username = @username, password = @password";
-        //    SqlCommand cmd = new SqlCommand(query, con);
-        //    cmd.Parameters.AddWithValue(@"username", username);
-        //    cmd.Parameters.AddWithValue("@password", password);
-        //    cmd.ExecuteNonQuery();
-        //    con.Close();
-        //}
+        public void DeleteUser(string username, string password)
+        {
+            conn.Open();
+            string query = "DELETE from[User] where username = @username, password = @password";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue(@"username", username);
+            cmd.Parameters.AddWithValue("@password", password);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
 
-            //Username en Password valid
+        //Username en Password valid
         public bool LogIn(string Username, string Password)
         {
             conn.Open();

@@ -32,7 +32,7 @@ namespace OLIVIEM.DAL
 
         public List<Product> GetAllProducts()
         {
-            conn.Open();
+            //conn.Open();
             string query = "SELECT * FROM [PRODUCT]";
             SqlCommand cmd = new SqlCommand(query, conn);
             List<Product> productList = new List<Product>();
@@ -67,11 +67,11 @@ namespace OLIVIEM.DAL
             {
                 while(reader.Read())
                 {
-                    return new Product()
+                    var p =  new Product()
                     {
                         id = (int)reader["ProductID"],
                         Name = (string)reader["Name"],
-                        Price = (decimal)reader["Price"],
+                        Price = (int)reader["Price"],
                         Size = (string)reader["Size"],
                         Color = (string)reader["Color"],
                         Quantity = (int)reader["Quantity"],
@@ -79,9 +79,10 @@ namespace OLIVIEM.DAL
                         CategoryName = (string)reader["CategoryName"],
                         Image = (string)reader["Image"]
                     };
+                    return p;
                 }
             }
-            return new Product();
+            return null;
         }
 
         public bool CategoryExists(int CategoryName)
@@ -129,12 +130,11 @@ namespace OLIVIEM.DAL
             }
             return productList;
         }
-
         public List<Product> GetCategoryproducts(string category)
         {         
              List<Product> productList = new List<Product>();
             conn.Open();
-            string query = $"SELECT Product.Name, Category.Name FROM [Product] inner join [Category] where CategoryName = {category}";
+            string query = $"SELECT Name, Price, Image, Category.CategoryName FROM[Product] inner join[Category] on Product.CategoryName = Category.CategoryName where Category.CategoryName = '{category}' ";
             SqlCommand cmd = new SqlCommand(query, conn);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -142,19 +142,33 @@ namespace OLIVIEM.DAL
                 {
                     productList.Add(new Product()
                     {
-                        id = (int)reader["ProductID"],
+
                         Name = (string)reader["Name"],
                         Price = (int)reader["Price"],
-                        Size = (string)reader["Size"],
-                        Color = (string)reader["Color"],
-                        Quantity = (int)reader["Quantity"],
-                        Description = (string)reader["Description"],
-                        CategoryName = (string)reader["CategoryName"],
                         Image = (string)reader["Image"]
+
+
                     });
                 }
             }
+            conn.Close();
             return productList;
+        }
+
+        public List<string> GetAllCategoryNames()
+        {
+            conn.Open();
+            string query = "select distinct CategoryName from [Product]";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            List<string> CategoryList = new List<string>();
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    CategoryList.Add(reader["CategoryName"].ToString());
+                }
+            }
+            return CategoryList;
         }
     }   
 }

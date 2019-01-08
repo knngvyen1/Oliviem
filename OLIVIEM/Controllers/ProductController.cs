@@ -13,14 +13,14 @@ namespace OLIVIEM.Controllers
     {
         private Productlogic productlogic;
         public List<Product> products = new List<Product>();
+
         public ProductController()
         {
             productlogic = Factory.Factory.GetProductslogic();
         }
 
         public IActionResult Index(Productviewmodel viewmodel)
-        {
-            
+        {           
             return View();
         }
 
@@ -46,9 +46,10 @@ namespace OLIVIEM.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetCategoryproduct(Productviewmodel viewmodel)
+        public IActionResult GetCategoryproduct(string categoryname)
         {
-            return View(viewmodel);
+            productlogic.GetCategoryproducts(categoryname);
+            return View();
         }
     }
 }
