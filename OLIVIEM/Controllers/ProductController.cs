@@ -51,13 +51,6 @@ namespace OLIVIEM.Controllers
             viewmodel.products = productlogic.GetAllProducts();
             return View(viewmodel);
         }
-
-        [HttpGet]
-        public IActionResult GetCategoryproduct(string categoryname)
-        {
-            productlogic.GetCategoryproducts(categoryname);
-            return View();
-        }
         [HttpGet]
         public IActionResult GetCategoryproduct(Productviewmodel viewmodel)
         {
