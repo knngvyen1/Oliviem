@@ -38,10 +38,17 @@ namespace OLIVIEM.Controllers
             }
             return View(viewmodel);
         }
+        [HttpGet]
+        public IActionResult AddProduct()
+        {
+           
+            return View();
+        }
 
         [HttpGet]
         public IActionResult AllProducts(Productviewmodel viewmodel)
         {
+            viewmodel.products = productlogic.GetAllProducts();
             return View(viewmodel);
         }
 
@@ -51,5 +58,19 @@ namespace OLIVIEM.Controllers
             productlogic.GetCategoryproducts(categoryname);
             return View();
         }
+        [HttpGet]
+        public IActionResult GetCategoryproduct(Productviewmodel viewmodel)
+        {
+            viewmodel.Categorylistproducts = productlogic.GetCategoryproducts(viewmodel.CategoryName);
+            return View(viewmodel);
+        }
+
+        [HttpGet]
+        public IActionResult GetProduct(int id)
+        { 
+            return View(productlogic.GetProduct(id));
+
+        }
+
     }
 }

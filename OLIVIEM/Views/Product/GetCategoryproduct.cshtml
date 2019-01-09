@@ -1,0 +1,27 @@
+﻿@model OLIVIEM.Viewmodel.Productviewmodel
+@{
+    ViewData["Title"] = "GetCategoryproduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetCategoryproduct</h2>
+
+@foreach (var item in Model.Categorylistproducts)
+{
+    <div class="col-md-4" style="padding: 10px;">
+        <div class="card">
+            <img class="card-img-top" src="@item.Image" alt="Card image cap" style="width: 100%; padding: 10px;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="#" class="text-dark">@item.Name</a>
+                </h5>
+            </div>
+            <div class="card-footer">
+                <div class="float-left">
+                    <a href="#" class="text-danger">€ @item.Price</a>
+                </div>
+            </div>
+        </div>
+    </div><!--.col-->
+}
+

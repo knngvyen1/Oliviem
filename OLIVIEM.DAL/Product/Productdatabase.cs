@@ -32,7 +32,7 @@ namespace OLIVIEM.DAL
 
         public List<Product> GetAllProducts()
         {
-            //conn.Open();
+            conn.Open();
             string query = "SELECT * FROM [PRODUCT]";
             SqlCommand cmd = new SqlCommand(query, conn);
             List<Product> productList = new List<Product>();
@@ -54,6 +54,7 @@ namespace OLIVIEM.DAL
                     });
                 }
             }
+            conn.Close();
             return productList;
         }
 
@@ -82,11 +83,13 @@ namespace OLIVIEM.DAL
                     return p;
                 }
             }
+            conn.Close();
             return null;
         }
 
         public bool CategoryExists(int CategoryName)
         {
+            
             SqlCommand cmd = new SqlCommand("dbo.CategoryExists", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@CategoryName", CategoryName);
@@ -105,31 +108,31 @@ namespace OLIVIEM.DAL
         }
         //categorien
        
-        public List<Product> GetAllProductsTest()
-        {
-            SqlCommand cmd = new SqlCommand("dbo.GetProducts", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-            List<Product> productList = new List<Product>();
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    productList.Add(new Product()
-                    {
-                        id = (int)reader["ProductID"],
-                        Name = (string)reader["Name"],
-                        Price = (int)reader["Price"],
-                        Size = (string)reader["Size"],
-                        Color = (string)reader["Color"],
-                        Quantity = (int)reader["Quantity"],
-                        Description = (string)reader["Description"],
-                        CategoryName = (string)reader["CategoryName"],
-                        Image = (string)reader["Image"]
-                    });
-                }
-            }
-            return productList;
-        }
+        //public List<Product> GetAllProductsTest()
+        //{          
+        //    SqlCommand cmd = new SqlCommand("dbo.GetProducts", conn);
+        //    cmd.CommandType = CommandType.StoredProcedure;
+        //    List<Product> productList = new List<Product>();
+        //    using (SqlDataReader reader = cmd.ExecuteReader())
+        //    {
+        //        while (reader.Read())
+        //        {
+        //            productList.Add(new Product()
+        //            {
+        //                id = (int)reader["ProductID"],
+        //                Name = (string)reader["Name"],
+        //                Price = (int)reader["Price"],
+        //                Size = (string)reader["Size"],
+        //                Color = (string)reader["Color"],
+        //                Quantity = (int)reader["Quantity"],
+        //                Description = (string)reader["Description"],
+        //                CategoryName = (string)reader["CategoryName"],
+        //                Image = (string)reader["Image"]
+        //            });
+        //        }
+        //    }
+        //    return productList;
+        //}
         public List<Product> GetCategoryproducts(string category)
         {         
              List<Product> productList = new List<Product>();
@@ -168,7 +171,9 @@ namespace OLIVIEM.DAL
                     CategoryList.Add(reader["CategoryName"].ToString());
                 }
             }
+            conn.Close();
             return CategoryList;
+            
         }
     }   
 }
