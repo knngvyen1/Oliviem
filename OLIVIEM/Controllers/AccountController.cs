@@ -24,7 +24,7 @@ namespace OLIVIEM.Controllers
         [HttpPost]
         public IActionResult Addsaldo(Accountviewmodel viewmodel)
         {
-            logic.AddSaldo(viewmodel.Saldo, Session.Id);
+            //logic.AddSaldo(viewmodel.Saldo, Session.Id);
             return View(viewmodel);
         }
         [HttpGet]

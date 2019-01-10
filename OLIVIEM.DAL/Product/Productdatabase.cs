@@ -80,6 +80,7 @@ namespace OLIVIEM.DAL
                         CategoryName = (string)reader["CategoryName"],
                         Image = (string)reader["Image"]
                     };
+                    conn.Close();
                     return p;
                 }
             }
@@ -175,5 +176,7 @@ namespace OLIVIEM.DAL
             return CategoryList;
             
         }
+
+        
     }   
 }

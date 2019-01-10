@@ -7,8 +7,7 @@ namespace OLIVIEM.Models
 {
    public class Shoppingcart
     {
-        List<Product> shoppingcar = new List<Product>();
-
-
+        List<Product> Items = new List<Product>();
     }
 }
+ 

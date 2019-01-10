@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Logic;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OLIVIEM.Models;
 using OLIVIEM.Viewmodel;
+using OLIVIEM.utils;
 
 namespace OLIVIEM.Controllers
 {
@@ -48,6 +50,7 @@ namespace OLIVIEM.Controllers
         [HttpGet]
         public IActionResult AllProducts(Productviewmodel viewmodel)
         {
+            viewmodel.Categorylistproducts = productlogic.GetCategoryproducts(viewmodel.CategoryName);
             viewmodel.products = productlogic.GetAllProducts();
             return View(viewmodel);
         }
@@ -58,12 +61,16 @@ namespace OLIVIEM.Controllers
             return View(viewmodel);
         }
 
+       
+
+
         [HttpGet]
         public IActionResult GetProduct(int id)
         { 
             return View(productlogic.GetProduct(id));
-
         }
+
+
 
     }
 }

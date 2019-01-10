@@ -8,6 +8,7 @@ using OLIVIEM.Viewmodel;
 using Models;
 using OLIVIEM.Models;
 using Newtonsoft.Json;
+
 using Microsoft.AspNetCore.Http;
 
 namespace OLIVIEM.Controllers
@@ -29,7 +30,7 @@ namespace OLIVIEM.Controllers
         public IActionResult Index(LoginViewmodel viewmodel)
         {
             
-            if (loginlogic.LogIn(viewmodel.Username, viewmodel.Password)== true)
+            if (loginlogic.LogIn(viewmodel.Username, viewmodel.Password) == true)
             {
                 Account account = new Account()
                 {

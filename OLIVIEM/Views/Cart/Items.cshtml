@@ -1,0 +1,16 @@
+﻿@model OLIVIEM.Viewmodel.Productviewmodel;
+@{
+    ViewData["Title"] = "Items";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model.products)
+{
+    <h1>@item.Name</h1>
+    <img src="@item.Image" style="width: 100px" />
+}
+
+<a href="order/order">Bestellen</a>
+
+<h2>Items</h2>
+
