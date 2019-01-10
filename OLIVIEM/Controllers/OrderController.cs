@@ -15,9 +15,11 @@ namespace OLIVIEM.Controllers
     public class OrderController : Controller
     {
         private Productlogic productLogic;
+        private Orderlogic orderLogic;
         public OrderController()
         {
             productLogic = Factory.Factory.GetProductslogic();
+            orderLogic = Factory.Factory.GetOrderLogic();
         }
         public IActionResult Index()
         {
@@ -30,16 +32,33 @@ namespace OLIVIEM.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult CreateOrder(Productviewmodel productViewmodel)
+        [HttpGet]
+        public IActionResult CreateOrder()
         {
             //List<Product> products = new List<Product>;
             //foreach(var product in productViewmodel.products)
             //{
 
             //}
-            Account a = HttpContext.Session.Get<Account>("UserSession");
 
+            var a = new Account
+            {
+                id = 18
+            };
+            List<int> k = HttpContext.Session.Get<List<int>>("Cart");
+            List<Product> products = new List<Product>();
+            if (k == null)
+            {
+                return View();
+            }
+
+            foreach (int productId in k)
+            {
+                var product = productLogic.GetProduct(productId);
+
+                products.Add(product);
+            }
+            orderLogic.Creat(products, a);
 
             return View();
         }

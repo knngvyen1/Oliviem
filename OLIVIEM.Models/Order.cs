@@ -5,13 +5,6 @@ using System.Text;
 
 namespace Models
 {
-    public enum Status
-    {
-        Verwerken,
-        Verpakken,
-        Verzonden,
-        Bezorgd
-    }
 
     public class Order
     {

@@ -3,6 +3,7 @@ using Logic;
 using OLIVIEM.DAL;
 using OLIVIEM.DAL.Account;
 using OLIVIEM.DAL.Category;
+using OLIVIEM.DAL.Order;
 using OLIVIEM.Logic;
 
 namespace Factory
@@ -25,15 +26,16 @@ namespace Factory
             return new Accountlogic(new Accountrepository(new Accountdatabase()));
         }
 
-        //public static Orderlogic GetOrderLogic()
-        //{
-        //    return new Orderlogic(new Orderrepository(new Ordermemorycontext()));
-        //}
+        public static Orderlogic GetOrderLogic()
+        {
+            return new Orderlogic(new Orderrepository(new Orderdatabase()));
+        }
 
         public static Registerlogic GetRegisterlogic()
         {
             return new Registerlogic(new Registerrepository(new RegisterDatabase()));
         }
+
 
        
 
