@@ -66,7 +66,9 @@ namespace OLIVIEM.Controllers
 
         [HttpGet]
         public IActionResult GetProduct(int id)
-        { 
+        {
+            Product product = new Product();
+            product.Categorylist = productlogic.GetAllCategoryNames();
             return View(productlogic.GetProduct(id));
         }
 

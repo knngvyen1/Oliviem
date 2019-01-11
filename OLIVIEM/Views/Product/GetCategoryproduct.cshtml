@@ -3,14 +3,9 @@
     ViewData["Title"] = "GetCategoryproduct";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<head>
-
-
-</head>
-
 
 <body>
-    <h2>GetCategoryproduct</h2>
+
 
     @foreach (var item in Model.Categorylistproducts)
     {
@@ -19,7 +14,7 @@
                 <img class="card-img-top" src="@item.Image" alt="Card image cap" style="width: 100%; padding: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="#" class="text-dark">@item.Name</a>
+                        <a href="/Product/GetProduct?id= @item.id">@item.Name</a>
                     </h5>
                 </div>
                 <div class="card-footer">
@@ -30,5 +25,6 @@
             </div>
         </div><!--.col-->
     }
-
+    
 </body>
+

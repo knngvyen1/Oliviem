@@ -30,12 +30,13 @@ namespace OLIVIEM.DAL.Order
 
             foreach (var product in products)
             {
-                query = "Insert into [OrderProducts](name, orderId, userId) values(@name, @orderId, @userId)";
+                query = "Insert into [OrderProducts](name, orderId, userId, price) values(@name, @orderId, @userId, @price)";
                 SqlCommand test = new SqlCommand(query, conn);
                
                 test.Parameters.AddWithValue("@name", product.Name);
                 test.Parameters.AddWithValue("@orderId", orderId);
                 test.Parameters.AddWithValue("@userId", account.id);
+                test.Parameters.AddWithValue("@price",  product.Price);
                 test.ExecuteNonQuery();
                     
             }

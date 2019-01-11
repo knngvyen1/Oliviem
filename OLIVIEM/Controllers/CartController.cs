@@ -41,7 +41,7 @@ namespace OLIVIEM.Controllers
 
         [HttpGet]
         public IActionResult Items()
-        {
+       {
             Productviewmodel productViewModel = new Productviewmodel();
             productViewModel.products = new List<Product>();
             List<int> k = HttpContext.Session.Get<List<int>>("Cart");

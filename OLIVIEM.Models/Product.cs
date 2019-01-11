@@ -6,6 +6,7 @@ namespace OLIVIEM.Models
 {
    public class Product
     {
+        public List<string> Categorylist { get; set; }
         public int id { get; set; }
         public string Name { get; set; }
         public string Size { get; set; }

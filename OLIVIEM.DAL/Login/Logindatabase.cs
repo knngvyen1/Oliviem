@@ -49,14 +49,5 @@ namespace DAL
             conn.Close();
             return valid;
         }
-       
-
-
-
-        // check if user exist in de database
-        //check if user is ingelogd
-        //if not melding user doesnt exist> registreer
-
-
     }
 }

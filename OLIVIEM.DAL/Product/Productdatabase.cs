@@ -139,7 +139,7 @@ namespace OLIVIEM.DAL
         {         
              List<Product> productList = new List<Product>();
             conn.Open();
-            string query = $"SELECT Name, Price, Image, Category.CategoryName FROM[Product] inner join[Category] on Product.CategoryName = Category.CategoryName where Category.CategoryName = '{category}' ";
+            string query = $"SELECT ProductID, Name, Price, Image, Category.CategoryName FROM[Product] inner join[Category] on Product.CategoryName = Category.CategoryName where Category.CategoryName = '{category}' ";
             SqlCommand cmd = new SqlCommand(query, conn);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
@@ -147,7 +147,7 @@ namespace OLIVIEM.DAL
                 {
                     productList.Add(new Product()
                     {
-
+                        id = (int)reader["ProductID"],
                         Name = (string)reader["Name"],
                         Price = (int)reader["Price"],
                         Image = (string)reader["Image"]

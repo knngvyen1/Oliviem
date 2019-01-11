@@ -9,15 +9,7 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="Home/index">Oliviem</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-
-
+  
     @foreach (var item in @Model.products)
     {
         <div class="col-md-4" style="padding: 10px;">
@@ -25,72 +17,17 @@
                 <img class="card-img-top" src="@item.Image" alt="Card image cap" style="width: 100%; padding: 10px;">
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a href="GetProduct?id=@item.id">@item.Name</a>
+                        <a href="Getproduct?id=@item.id">@item.Name</a>
                     </h5>
                 </div>
                 <div class="card-footer">
                     <div class="float-left">
-                        <a href="#" class="text-danger">€ @item.Price</a>
+                        <a href="#" class="text-danger">
+                        @item.Price</a>
                     </div>
                 </div>
             </div>
         </div><!--.col-->
     }
-    <section class="sections random-product">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4" style="padding: 10px;">
-                        <div class="card">
-                            <img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=source[/dd/5b/dd5b01f5beafed7a7b87a5a87f692944d78e3fa9.jpg],origin[dam],category[ladies_dresses_shortdresses],type[LOOKBOOK],res[m],res[m],hmver[2]&call=url[file:/product/main]" alt="Card image cap" style="width: 100%; padding: 10px;">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="#" class="text-dark">Overslagjurk met V-hals</a>
-                                </h5>
-                            </div>
-                            <div class="card-footer">
-                                @*<div class="badge badge-danger float-right">50%</div>*@
-                                <div class="float-left">
-                                    <a href="#" class="text-danger">€ 29,99</a>
-                                    <br>
-                                    @*<small class="text-muted"><del>2000 shekels</del></small>*@
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--.col-->
-                    <div class="col-md-4" style="padding: 10px;">
-                        <div class="card">
-                            <img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=source[/6f/4e/6f4e9af69b7799021db1f458f714633fd31a9ce1.jpg],origin[dam],category[ladies_dresses_shortdresses],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]" alt="Card image cap" style="width: 100%; padding: 10px;">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="#" class="text-dark">Glitterende Jurk</a>
-                                </h5>
-                            </div>
-                            <div class="card-footer">
-                                <div class="float-left">
-                                    <a href="#" class="text-danger">€ 29,99</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--.col-->
-                    <div class="col-md-4" style="padding: 10px;">
-                        <div class="card">
-                            <img class="card-img-top" src="https://lp2.hm.com/hmgoepprod?set=source[/b1/a3/b1a38f455d6562b6a11f2c218e049013a8ab24e8.jpg],origin[dam],category[ladies_dresses_shortdresses],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]" alt="Card image cap" style="width: 100%; height: 100%; padding: 10px;">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="#" class="text-dark">Nauwsluitende jurk</a>
-                                </h5>
-                            </div>
-                            <div class="card-footer">
-                                <div class="float-left">
-                                    <a href="#" class="text-danger">€ 39,99</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!--.col-->
-                </div><!--.row-->
-            </div><!--.container-->
-        </div><!--.container-fluid-->
-    </section>
-
+   
 </body>
