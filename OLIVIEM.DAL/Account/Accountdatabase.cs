@@ -7,7 +7,7 @@ namespace OLIVIEM.DAL.Account
 {
    public class Accountdatabase : IAccountcontext
     {
-        private static string connectionString = @"Data Source=LAPTOP-EAQU5PDB\SQLEXPRESS;Initial Catalog=OLIVIEM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private static string connectionString = @"Server=mssql.fhict.local;Database=dbi390996;User Id=dbi390996;Password=YourChoosenPassword;12345678";
         SqlConnection conn = new SqlConnection(connectionString);
 
 

@@ -2,7 +2,6 @@
 using Logic;
 using OLIVIEM.DAL;
 using OLIVIEM.DAL.Account;
-using OLIVIEM.DAL.Category;
 using OLIVIEM.DAL.Order;
 using OLIVIEM.Logic;
 
